@@ -1,0 +1,100 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="_247.Informacion"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot es la cuadrícula raíz donde se coloca todo el contenido de la página-->
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="Assets/Fondo_1.png"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel. Colocar aquí el contenido adicional-->
+        <Grid x:Name="ContentPanel" Margin="10,106,12,-70" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="73*"/>
+                <ColumnDefinition Width="167*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Image Source="Assets/Cruz Verde.jpg" Margin="5,103,5,30" Tap="Image_Tap" Grid.RowSpan="2"/>
+            <Image Grid.Row="2" Source="Assets/simi.jpg" MinWidth="130" MinHeight="100" Margin="0,10,9,12" Tap="Image_Tap_1"/>
+            <Image Grid.Row="2" Source="Assets/fasa-logo-IC+(2).jpg" MinWidth="130" MinHeight="100" Margin="2,116,7,108" Grid.RowSpan="3" Tap="Image_Tap_2"/>
+            <Image HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="89" Grid.Row="4" Source="Assets/index-dr-ahorro.gif" MinWidth="130" MinHeight="100" Margin="29,30,0,0" Grid.ColumnSpan="2" Grid.RowSpan="2" Tap="Image_Tap_3"/>
+            <TextBlock Grid.Column="1" TextWrapping="Wrap" FontSize="24" Margin="0,102,0,20" Grid.RowSpan="2">
+            	<Run FontSize="26" Text="Farmacia Cruz Verde"/>
+            	<LineBreak/>
+            	<Run FontSize="20" Text="Abierto hasta las 21:30"/>
+            	<LineBreak/>
+            	<Run FontSize="20" Text="85 metros"/>
+            	<LineBreak/>
+            	<Run/>
+            	<LineBreak/>
+            	<LineBreak/>
+            	<LineBreak/>
+            </TextBlock>
+            <TextBlock Grid.Column="1" TextWrapping="Wrap" Grid.Row="2" FontSize="13.333">
+            	<Run FontSize="26" Text="Farmacia "/>
+            	<Run FontSize="26" Text="Dr Simi"/>
+            	<LineBreak/>
+            	<Run FontSize="20" Text="Abierto hasta las 21:30"/>
+            	<LineBreak/>
+            	<Run FontSize="20" Text="1.4 Kilo"/>
+            	<Run FontSize="20" Text="metros"/>
+            	<LineBreak/>
+            	<LineBreak/>
+            	<Run Text=""/>
+            </TextBlock>
+            <TextBlock Grid.Column="1" TextWrapping="Wrap" Grid.Row="3" FontSize="13.333" Margin="0,14,0,108" Grid.RowSpan="2">
+            	<Run FontSize="26" Text="Farmacia "/>
+            	<Run FontSize="26" Text="Ahumada"/>
+            	<LineBreak/>
+            	<Run FontSize="20" Text="Abierto hasta las 21:30"/>
+            	<LineBreak/>
+            	<Run FontSize="20" Text="649"/>
+            	<Run FontSize="20" Text=" metros"/>
+            	<LineBreak/>
+            </TextBlock>
+            <TextBlock Grid.Column="1" TextWrapping="Wrap" Grid.Row="4" FontSize="13.333" Margin="0,26,0,96" Grid.RowSpan="2">
+            	<Run FontSize="26" Text="Farmacia "/>
+            	<Run FontSize="26" Text="Dr Ahorro"/>
+            	<LineBreak/>
+            	<Run FontSize="20" Text="Abierto hasta las 21:30"/>
+            	<LineBreak/>
+            	<Run FontSize="20" Text="6.1"/>
+            	<Run FontSize="20" Text=" "/>
+            	<Run FontSize="20" Text="Kilo"/>
+            	<Run FontSize="20" Text="metros"/>
+            	<LineBreak/>
+            </TextBlock>
+            <Image Grid.Column="1" Margin="211,-100,28,166" Source="Assets/Logo_2.png" Stretch="Fill" Height="56" Width="80"/>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

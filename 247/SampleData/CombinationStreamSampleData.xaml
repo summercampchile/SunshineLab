@@ -1,0 +1,8 @@
+<Facebook:CombinationStream xmlns:Facebook="clr-namespace:Facebook;assembly=Facebook" xmlns:System="clr-namespace:System;assembly=mscorlib" CanSeek="False" CanWrite="True" CanRead="True" ReadTimeout="18" WriteTimeout="13">
+	<Facebook:CombinationStream.Length>
+		<System:Int64/>
+	</Facebook:CombinationStream.Length>
+	<Facebook:CombinationStream.Position>
+		<System:Int64/>
+	</Facebook:CombinationStream.Position>
+</Facebook:CombinationStream>
