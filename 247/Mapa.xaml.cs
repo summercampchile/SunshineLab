@@ -72,10 +72,13 @@ namespace _247
             HideProgressIndicator();
         }
 
-
-        //por un tema de optimización, solo baja la informacion completa del punto al cual se le hace click.
-        //si bien causa una pequeña espera al hacer click en e punto, evita una espera mayor (y gasto de servidor)
-        //si bajara toda a info de todos los puntos al principio.
+        /// <summary>
+        ///por un tema de optimización, solo baja la informacion completa del punto al cual se le hace click.
+        ///si bien causa una pequeña espera al hacer click en e punto, evita una espera mayor (y gasto de servidor)
+        ///si bajara toda a info de todos los puntos al principio.
+        /// </summary>
+        /// <param name="latitud">latitud del punto a mostrar su informacion</param>
+        /// <param name="longitud">longitud de punto a mostrar su informacion</param>
         private void showPointInformation(double latitud, double longitud)
         {
             ShowProgressIndicator(AppResources.GettingLocationProgressText);
@@ -94,10 +97,13 @@ namespace _247
             HideProgressIndicator();
         }
 
+        
         /// <summary>
         /// Genera la ruta desde un punto seleccionado (no olvidar colocar el parametro despues)
         /// hacia el punto georreferenciado actual ;)
         /// </summary>
+        /// <param name="latitud">latiud del punto del cual se le hara su ruta</param>
+        /// <param name="longitud">longitud de punto del cual se le hara su ruta</param>
         private void showCategorizedPoints(double latitud, double longitud)
         {
             ShowProgressIndicator(AppResources.GettingLocationProgressText);
@@ -129,6 +135,10 @@ namespace _247
             HideProgressIndicator();
         }
 
+        /// <summary>
+        /// A momento de comenzar a cargar la página, se hace el flujo de lo que se va a reaizar
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -206,7 +216,6 @@ namespace _247
                 MessageBoxResult result = MessageBox.Show(AppResources.NoCurrentLocationMessageBoxText + " " + AppResources.LocationUsageQueryText,
                                                           AppResources.ApplicationTitle,
                                                           MessageBoxButton.OKCancel);
-
                 if (result == MessageBoxResult.OK)
                 {
                     _isLocationAllowed = true;
