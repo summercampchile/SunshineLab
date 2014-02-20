@@ -15,9 +15,6 @@
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot">
-        <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="Assets/Fondo_1.png"/>
-        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -31,14 +28,21 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBlock Margin="78,-31,78,0" TextWrapping="Wrap" Text="REGÍSTRO" VerticalAlignment="Top" Foreground="#FFF0E504" FontSize="64" Height="106"/>
-            <TextBox HorizontalAlignment="Left" Height="72" Margin="1,97,-1,0" TextWrapping="Wrap" Text="Nombre" VerticalAlignment="Top" Width="456"/>
-            <TextBox HorizontalAlignment="Left" Height="72" Margin="2,172,-2,0" TextWrapping="Wrap" Text="Mail" VerticalAlignment="Top" Width="456"/>
-            <PasswordBox HorizontalAlignment="Left" Margin="1,249,-2,0" VerticalAlignment="Top" Width="457" Password="Password"/>
-            <PasswordBox HorizontalAlignment="Left" Margin="3,326,-2,0" VerticalAlignment="Top" Width="455" Password="Password"/>
-            <Image Margin="13,433,16,67" Source="Assets/Sin título-1.png" Stretch="Fill" Tap="Image_Tap"/>
-
+        	<Image x:Name="ImgPerfil" Margin="17,-4,275,448" Source="Assets/Icon_face.png" Stretch="Fill"/>
+        	<TextBox HorizontalAlignment="Left" Height="72" Margin="5,194,0,0" TextWrapping="Wrap" Text="Nombre" VerticalAlignment="Top" Width="230"/>
+        	<TextBox HorizontalAlignment="Left" Height="72" Margin="5,254,0,0" TextWrapping="Wrap" Text="Ciudad" VerticalAlignment="Top" Width="230"/>
+        	<TextBox Height="72" Margin="221,194,5,0" TextWrapping="Wrap" Text="Apellido" VerticalAlignment="Top"/>
+        	<TextBox HorizontalAlignment="Left" Height="72" Margin="221,254,0,0" TextWrapping="Wrap" Text="Región" VerticalAlignment="Top" Width="230"/>
+        	<TextBox Height="72" Margin="4,314,4,0" TextWrapping="Wrap" Text="Mail" VerticalAlignment="Top"/>
+        	<TextBox Height="72" Margin="4,374,4,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top"/>
+        	<TextBox Height="72" Margin="4,434,4,0" TextWrapping="Wrap" Text="Confirmar Password" VerticalAlignment="Top"/>
+        	<Image Margin="269,104,19,448" Source="Assets/registro_boton_1.png" Stretch="Fill" Tap="Image_Tap_1"/>
+        	<Image Margin="293,513,18,30" Source="Assets/registro_boton_2.png" Stretch="Fill" Tap="Image_Tap_2"/>
+        	<Image Margin="18,-68,-2,642" Source="Assets/titulo_registro.png" Stretch="Fill"/>
+        	<Image Margin="17,179,18,424" Source="Assets/linea_color_registro.png" Stretch="Fill"/>
         </Grid>
+        <Image Margin="350,24,50,81" Source="Assets/Logo_2.png" Stretch="Fill"/>
+
     </Grid>
 
 </phone:PhoneApplicationPage>

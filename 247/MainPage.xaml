@@ -15,9 +15,6 @@
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot">
-        <Grid.Background>
-            <ImageBrush ImageSource="Assets/Fondo_1.png"/>
-        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" MinHeight="161"/>
             <RowDefinition/>
@@ -54,41 +51,33 @@
                 <ColumnDefinition Width="38*"/>
                 <ColumnDefinition Width="38*"/>
                 <ColumnDefinition Width="38*"/>
-            </Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions> 
             <Grid.RowDefinitions>
                 <RowDefinition Height="154*"/>
                 <RowDefinition Height="155*"/>
                 <RowDefinition Height="150*"/>
                 <RowDefinition Height="148*"/>
-            </Grid.RowDefinitions>
+            </Grid.RowDefinitions> 
             <Image Grid.ColumnSpan="3" Height="243" Margin="13,-137,13,0" VerticalAlignment="Top"/>
-            <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="122" Margin="100,20,0,0" Click="Button_Click" Grid.Row="3" BorderBrush="{x:Null}" Height="122">
+            <Image Grid.ColumnSpan="2" Margin="37,107,17,70" Grid.Row="2" Source="Assets/Enter_1.png" Stretch="Fill" Grid.RowSpan="2" Tap="Image_Tap_9"/>
+              <Button Content="" VerticalAlignment="Top" Grid.ColumnSpan="2"  Margin="131,94,23,0" Grid.Row="2" BorderBrush="{x:Null}" Height="83" Grid.Column="1" Grid.RowSpan="2" Click="Button_Click">
                 <Button.Background>
-                    <ImageBrush Stretch="Fill" ImageSource="Assets/Boton_03.png"/>
+                    <ImageBrush ImageSource="Assets/Enter_2.png" Stretch="UniformToFill"/>
                 </Button.Background>
-            </Button>
-            <Image Margin="21,-73,21,117" Source="Assets/Icono_01.png" Stretch="Fill" Tap="Image_Tap_2"/>
-            <Image Grid.Column="1" Margin="21,-73,21,117" Source="Assets/Icono_02.png" Stretch="Fill" Tap="Image_Tap_3"/>
-            <Image Grid.Column="2" Margin="21,-73,21,117" Source="Assets/Icono_03.png" Stretch="Fill" Tap="Image_Tap_4"/>
-            <Image Margin="21,79,21,120" Source="Assets/Icono_04.png" Stretch="Fill" Grid.RowSpan="2" Tap="Image_Tap_5"/>
-            <Image Grid.Column="1" Margin="21,79,21,120" Source="Assets/Icono_05.png" Stretch="Fill" Grid.RowSpan="2" Tap="Image_Tap_6"/>
-            <Image Grid.Column="2" Margin="21,79,21,120" Source="Assets/Icono_06.png" Stretch="Fill" Grid.RowSpan="2" Tap="Image_Tap_7"/>
-            <Image Margin="21,74,21,121" Grid.Row="1" Source="Assets/Icono_07.png" Stretch="Fill" Grid.RowSpan="2" Tap="Image_Tap_8"/>
-            <Image Grid.Column="1" Margin="21,74,21,121" Grid.Row="1" Source="Assets/Icono_08.png" Stretch="Fill" Grid.RowSpan="2" Tap="Image_Tap_9"/>
-            <Image Grid.Column="2" Margin="21,74,21,121" Grid.Row="1" Source="Assets/Icono_09.png" Stretch="Fill" Grid.RowSpan="2" Tap="Image_Tap_10"/>
-            <Button Content="" Grid.Column="1" Margin="82,20,100,0" Grid.Row="3" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="122" BorderBrush="{x:Null}">
-                <Button.Background>
-                    <ImageBrush Stretch="Fill" ImageSource="Assets/Boton_02.png"/>
-                </Button.Background>
-            </Button>
+            </Button>			
+			<Image Grid.Column="1" Margin="146,22,37,70" Grid.Row="3" Source="Assets/Enter_3.png" Stretch="Fill" Grid.ColumnSpan="2"/>
+            <Image Grid.Column="1" Margin="146,130,37,54" Grid.Row="1" Grid.RowSpan="2" Source="Assets/Icon_9.png" Stretch="Fill" Grid.ColumnSpan="2" Tap="Image_Tap_8"/>
+            <Image Grid.Column="1" Margin="16,130,15,54" Grid.Row="1" Grid.RowSpan="2" Source="Assets/Icon_8.png" Stretch="Fill" Tap="Image_Tap_7"/>
+            <Image Grid.ColumnSpan="2" Margin="37,130,146,54" Grid.Row="1" Grid.RowSpan="2" Source="Assets/Icon_7.png" Stretch="Fill" Tap="Image_Tap_6"/>
+            <Image Grid.Column="1" Margin="146,152,37,36" Source="Assets/Icon_6.png" Stretch="Fill" Grid.ColumnSpan="2" Grid.RowSpan="2" Tap="Image_Tap_5"/>
+            <Image Grid.Column="1" Margin="16,152,15,36" Source="Assets/Icon_5.png" Stretch="Fill" Grid.RowSpan="2" Tap="Image_Tap_4"/>
+            <Image Grid.ColumnSpan="2" Margin="37,152,146,36" Source="Assets/Icon_4.png" Stretch="Fill" Grid.RowSpan="2" Tap="Image_Tap_3"/>
+            <Image Grid.Column="1" Margin="146,20,37,13" Source="Assets/Icon_3.png" Stretch="Fill" Grid.ColumnSpan="2" Tap="Image_Tap_2"/>
+            <Image Grid.Column="1" Margin="16,20,15,13" Source="Assets/Icon_2.png" Stretch="Fill" Tap="Image_Tap_1"/>
+            <Image Grid.ColumnSpan="2" Margin="38,20,145,13" Source="Assets/Icon_1.png" Stretch="Fill" Tap="Image_Tap"/>
 
         </Grid>
-        <Button Content="" HorizontalAlignment="Left" Margin="10,354,0,0" VerticalAlignment="Top" Width="455" BorderBrush="{x:Null}" Grid.Row="1" Height="126" Tap="Button_Tap_1">
-            <Button.Background>
-                <ImageBrush ImageSource="Assets/Boton_01.png" Stretch="Fill"/>
-            </Button.Background>
-        </Button>
-        <Image Margin="359,10,41,95" Source="Assets/Logo_2.png" Stretch="Fill"/>
+        <Image Margin="350,24,50,81" Source="Assets/Logo_2.png" Stretch="Fill"/>
 
         <!--Uncomment to see an alignment grid to help ensure your controls are
             aligned on common boundaries.  The image has a top margin of -32px to

@@ -1,0 +1,70 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="_247.PerfilUsuario"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+   <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Image Margin="350,24,50,81" Source="Assets/Logo_2.png" Stretch="Fill"/>
+        <Image Margin="35,91,34,39" Source="Assets/titulo_perfil.png" Stretch="Fill"/>
+		<Image Margin="415,145,34,592" Source="Assets/Social_1.png" Stretch="Fill" Grid.RowSpan="2"/>
+        <Image Margin="415,24,34,552" Source="Assets/Social_2.png" Stretch="Fill" Grid.Row="1"/>
+        <Image Margin="35,145,374,552" Source="Assets/Icon_face.png" Stretch="Fill" Grid.RowSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="118,145,0,552" TextWrapping="Wrap" Width="170" FontSize="18.667" Grid.RowSpan="2">
+        	<Run FontSize="17.333" Text="Nombre Usuario"/>
+        	<LineBreak/>
+        	<Run FontSize="12" Text="Apellido"/>
+        	<LineBreak/>
+        	<Run FontSize="12" Text="Ciudad"/>
+        	<LineBreak/>
+        	<Run FontSize="12" Text="Rango"/>
+        </TextBlock>
+        <Image Margin="35,79,34,525" Grid.Row="1" Source="Assets/linea_color_perfil_1.png" Stretch="Fill"/>
+        <Image Margin="238,98,238,20" Grid.Row="1" Source="Assets/linea_color_perfil_2.png" Stretch="Fill"/>
+        <TextBlock HorizontalAlignment="Left" Margin="35,104,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Lugares Favoritos" VerticalAlignment="Top"/>
+        <TextBlock Margin="275,104,31,0" Grid.Row="1" TextWrapping="Wrap" Text="Lugares Ingresados" VerticalAlignment="Top"/>
+        <Image Margin="35,190,284,396" Grid.Row="1" Source="Assets/categoria_perfil_1.png" Stretch="Fill"/>
+        <Image Margin="285,190,34,396" Grid.Row="1" Source="Assets/categoria_perfil_2.png" Stretch="Fill"/>
+        <Image Margin="35,145,284,431" Grid.Row="1" Source="Assets/perfil_favorito.png" Stretch="Fill"/>
+        <Image Margin="284,145,34,431" Grid.Row="1" Source="Assets/perfil_lugar.png" Stretch="Fill"/>
+        <Image Margin="35,228,369,303" Grid.Row="1" Source="Assets/cuadrado.png" Stretch="Fill"/>
+        <Image Margin="120,228,284,303" Grid.Row="1" Source="Assets/cuadrado.png" Stretch="Fill"/>
+        <Image Margin="35,357,369,174" Grid.Row="1" Source="Assets/cuadrado.png" Stretch="Fill"/>
+        <Image Margin="35,321,284,265" Grid.Row="1" Source="Assets/categoria_perfil_3.png" Stretch="Fill"/>
+        <Image Margin="285,321,34,265" Grid.Row="1" Source="Assets/categoria_perfil_4.png" Stretch="Fill"/>
+        <Image Margin="35,448,284,138" Grid.Row="1" Source="Assets/categoria_perfil_5.png" Stretch="Fill"/>
+        <Image Margin="285,448,34,138" Grid.Row="1" Source="Assets/categoria_perfil_6.png" Stretch="Fill"/>
+        <Image Margin="120,357,284,174" Grid.Row="1" Source="Assets/cuadrado.png" Stretch="Fill"/>
+        <Image Margin="35,480,369,51" Grid.Row="1" Source="Assets/cuadrado.png" Stretch="Fill"/>
+        <Image Margin="120,480,284,51" Grid.Row="1" Source="Assets/cuadrado.png" Stretch="Fill"/>
+        <Image Margin="285,228,119,303" Grid.Row="1" Source="Assets/cuadrado.png" Stretch="Fill"/>
+        <Image Margin="285,357,119,174" Grid.Row="1" Source="Assets/cuadrado.png" Stretch="Fill"/>
+        <Image Margin="285,480,119,51" Grid.Row="1" Source="Assets/cuadrado.png" Stretch="Fill"/>
+        <Image Margin="370,228,34,303" Grid.Row="1" Source="Assets/cuadrado.png" Stretch="Fill"/>
+        <Image Margin="370,357,34,174" Grid.Row="1" Source="Assets/cuadrado.png" Stretch="Fill"/>
+        <Image Margin="370,480,34,51" Grid.Row="1" Source="Assets/cuadrado.png" Stretch="Fill"/>
+    </Grid>
+
+</phone:PhoneApplicationPage>

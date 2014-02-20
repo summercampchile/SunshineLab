@@ -22,77 +22,71 @@ namespace _247
             //BuildLocalizedApplicationBar();
         }
 
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+        	// TODO: Add event handler implementation here.
+ 		NavigationService.Navigate(new Uri("/Pages/FacebookLoginPage.xaml", UriKind.Relative));			
+        }
+
         private void Image_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
         	// TODO: Add event handler implementation here.
-			NavigationService.Navigate(new Uri("/Informacion.xaml", UriKind.Relative));
+			NavigationService.Navigate(new Uri("/Mapa.xaml", UriKind.Relative));
         }
 
         private void Image_Tap_1(object sender, System.Windows.Input.GestureEventArgs e)
         {
         	// TODO: Add event handler implementation here.
-			NavigationService.Navigate(new Uri("/Informacion.xaml", UriKind.Relative));
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/Pages/FacebookLoginPage.xaml", UriKind.Relative));
-        }
-
-        private void Button_Tap_1(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/Registar.xaml", UriKind.Relative));
-        }
-
-        private void Image_Tap_3(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/Informacion.xaml", UriKind.Relative));
-        }
-
-        private void Image_Tap_4(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/Informacion.xaml", UriKind.Relative));
-        }
-
-        private void Image_Tap_5(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/Informacion.xaml", UriKind.Relative));
-        }
-
-        private void Image_Tap_6(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/Informacion.xaml", UriKind.Relative));
-        }
-
-        private void Image_Tap_7(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/Informacion.xaml", UriKind.Relative));
-        }
-
-        private void Image_Tap_8(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/Informacion.xaml", UriKind.Relative));
-        }
-
-        private void Image_Tap_9(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/Informacion.xaml", UriKind.Relative));
-        }
-
-        private void Image_Tap_10(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/Informacion.xaml", UriKind.Relative));
+			NavigationService.Navigate(new Uri("/Mapa.xaml", UriKind.Relative));
         }
 
         private void Image_Tap_2(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Informacion.xaml", UriKind.Relative));
+        	// TODO: Add event handler implementation here.
+			NavigationService.Navigate(new Uri("/Mapa.xaml", UriKind.Relative));
         }
 
+        private void Image_Tap_3(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+        	// TODO: Add event handler implementation here.
+			NavigationService.Navigate(new Uri("/Mapa.xaml", UriKind.Relative));
+        }
 
+        private void Image_Tap_4(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+        	// TODO: Add event handler implementation here.
+			NavigationService.Navigate(new Uri("/Mapa.xaml", UriKind.Relative));
+        }
 
+        private void Image_Tap_5(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+        	// TODO: Add event handler implementation here.
+			NavigationService.Navigate(new Uri("/Mapa.xaml", UriKind.Relative));
+        }
 
+        private void Image_Tap_6(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+        	// TODO: Add event handler implementation here.
+			NavigationService.Navigate(new Uri("/Mapa.xaml", UriKind.Relative));
+        }
 
+        private void Image_Tap_7(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+        	// TODO: Add event handler implementation here.
+			NavigationService.Navigate(new Uri("/Mapa.xaml", UriKind.Relative));
+        }
+
+        private void Image_Tap_8(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+        	// TODO: Add event handler implementation here.
+			NavigationService.Navigate(new Uri("/Mapa.xaml", UriKind.Relative));
+        }
+
+        private void Image_Tap_9(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+        	// TODO: Add event handler implementation here.
+			NavigationService.Navigate(new Uri("/Registar.xaml", UriKind.Relative));
+        }
 
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()

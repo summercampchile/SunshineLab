@@ -97,6 +97,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Comentarios.xaml.cs">
+      <DependentUpon>Comentarios.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Globales.cs" />
     <Compile Include="Informacion.xaml.cs">
       <DependentUpon>Informacion.xaml</DependentUpon>
@@ -117,17 +120,20 @@
     <Compile Include="Pages\Ubicaciones.xaml.cs">
       <DependentUpon>Ubicaciones.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PerfilUsuario.xaml.cs">
+      <DependentUpon>PerfilUsuario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registar.xaml.cs">
       <DependentUpon>Registar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Registrado.xaml.cs">
+      <DependentUpon>Registrado.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Subcategoria.xaml.cs">
-      <DependentUpon>Subcategoria.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\Constants.cs" />
   </ItemGroup>
@@ -137,6 +143,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="AboutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Comentarios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -164,11 +174,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PerfilUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Registar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Subcategoria.xaml">
+    <Page Include="Registrado.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -193,12 +207,7 @@
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Boton_01.png" />
-    <Content Include="Assets\Boton_02.png" />
-    <Content Include="Assets\Boton_03.png" />
-    <Content Include="Assets\Fondo_1.png" />
     <Content Include="Assets\Logo_2.png" />
-    <Content Include="Assets\Sin título-1.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -230,21 +239,88 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\24-7.png" />
-    <Resource Include="Assets\Cruz Verde.jpg" />
+    <Resource Include="Assets\categoria_informacion_1.png" />
+    <Resource Include="Assets\categoria_informacion_2.png" />
+    <Resource Include="Assets\categoria_informacion_3.png" />
+    <Resource Include="Assets\categoria_informacion_4.png" />
+    <Resource Include="Assets\categoria_informacion_5.png" />
+    <Resource Include="Assets\categoria_informacion_6.png" />
+    <Resource Include="Assets\categoria_informacion_7.png" />
+    <Resource Include="Assets\categoria_informacion_8.png" />
+    <Resource Include="Assets\categoria_informacion_9.png" />
+    <Resource Include="Assets\categoria_perfil_1.png" />
+    <Resource Include="Assets\categoria_perfil_2.png" />
+    <Resource Include="Assets\categoria_perfil_3.png" />
+    <Resource Include="Assets\categoria_perfil_4.png" />
+    <Resource Include="Assets\categoria_perfil_5.png" />
+    <Resource Include="Assets\categoria_perfil_6.png" />
+    <Resource Include="Assets\categoria_perfil_7.png" />
+    <Resource Include="Assets\categoria_perfil_8.png" />
+    <Resource Include="Assets\categoria_perfil_9.png" />
     <Resource Include="Assets\cuadrado-gris.gif" />
-    <Resource Include="Assets\fasa-logo-IC+%282%29.jpg" />
-    <Resource Include="Assets\icono_01.png" />
-    <Resource Include="Assets\icono_02.png" />
-    <Resource Include="Assets\icono_03.png" />
-    <Resource Include="Assets\icono_04.png" />
-    <Resource Include="Assets\icono_05.png" />
-    <Resource Include="Assets\icono_06.png" />
-    <Resource Include="Assets\icono_07.png" />
-    <Resource Include="Assets\icono_08.png" />
-    <Resource Include="Assets\icono_09.png" />
-    <Resource Include="Assets\index-dr-ahorro.gif" />
-    <Resource Include="Assets\logo_salcobrand.png" />
-    <Resource Include="Assets\simi.jpg" />
+    <Resource Include="Assets\cuadrado.png" />
+    <Resource Include="Assets\Enter_1.png" />
+    <Resource Include="Assets\Enter_2.png" />
+    <Resource Include="Assets\Enter_3.png" />
+    <Resource Include="Assets\enviar_color_categoria_01.png" />
+    <Resource Include="Assets\enviar_color_categoria_02.png" />
+    <Resource Include="Assets\enviar_color_categoria_03.png" />
+    <Resource Include="Assets\enviar_color_categoria_04.png" />
+    <Resource Include="Assets\enviar_color_categoria_05.png" />
+    <Resource Include="Assets\enviar_color_categoria_06.png" />
+    <Resource Include="Assets\enviar_color_categoria_07.png" />
+    <Resource Include="Assets\enviar_color_categoria_08.png" />
+    <Resource Include="Assets\enviar_color_categoria_09.png" />
+    <Resource Include="Assets\estrella_full.png" />
+    <Resource Include="Assets\estrella_media.png" />
+    <Resource Include="Assets\flecha_gusta.png" />
+    <Resource Include="Assets\flecha_no_gusta.png" />
+    <Resource Include="Assets\Icon_1.png" />
+    <Resource Include="Assets\Icon_2.png" />
+    <Resource Include="Assets\Icon_3.png" />
+    <Resource Include="Assets\Icon_4.png" />
+    <Resource Include="Assets\Icon_5.png" />
+    <Resource Include="Assets\Icon_6.png" />
+    <Resource Include="Assets\Icon_7.png" />
+    <Resource Include="Assets\Icon_8.png" />
+    <Resource Include="Assets\Icon_9.png" />
+    <Resource Include="Assets\Icon_face.png" />
+    <Resource Include="Assets\linea_color_categoría_01.png" />
+    <Resource Include="Assets\linea_color_categoría_02.png" />
+    <Resource Include="Assets\linea_color_categoría_03.png" />
+    <Resource Include="Assets\linea_color_categoría_04.png" />
+    <Resource Include="Assets\linea_color_categoría_05.png" />
+    <Resource Include="Assets\linea_color_categoría_06.png" />
+    <Resource Include="Assets\linea_color_categoría_07.png" />
+    <Resource Include="Assets\linea_color_categoría_08.png" />
+    <Resource Include="Assets\linea_color_categoría_09.png" />
+    <Resource Include="Assets\linea_color_perfil_1.png" />
+    <Resource Include="Assets\linea_color_perfil_2.png" />
+    <Resource Include="Assets\linea_color_registro.png" />
+    <Resource Include="Assets\pago_1.png" />
+    <Resource Include="Assets\pago_2.png" />
+    <Resource Include="Assets\pago_3.png" />
+    <Resource Include="Assets\perfil_favorito.png" />
+    <Resource Include="Assets\perfil_lugar.png" />
+    <Resource Include="Assets\red_info_1.png" />
+    <Resource Include="Assets\red_info_2.png" />
+    <Resource Include="Assets\red_info_3.png" />
+    <Resource Include="Assets\red_info_4.png" />
+    <Resource Include="Assets\registro_boton_1.png" />
+    <Resource Include="Assets\registro_boton_2.png" />
+    <Resource Include="Assets\responder_color_categoria_01.png" />
+    <Resource Include="Assets\responder_color_categoria_02.png" />
+    <Resource Include="Assets\responder_color_categoria_03.png" />
+    <Resource Include="Assets\responder_color_categoria_04.png" />
+    <Resource Include="Assets\responder_color_categoria_05.png" />
+    <Resource Include="Assets\responder_color_categoria_06.png" />
+    <Resource Include="Assets\responder_color_categoria_07.png" />
+    <Resource Include="Assets\responder_color_categoria_08.png" />
+    <Resource Include="Assets\responder_color_categoria_09.png" />
+    <Resource Include="Assets\Social_1.png" />
+    <Resource Include="Assets\Social_2.png" />
+    <Resource Include="Assets\titulo_perfil.png" />
+    <Resource Include="Assets\titulo_registro.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Facebook">
