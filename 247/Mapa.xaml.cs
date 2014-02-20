@@ -19,7 +19,6 @@ using Newtonsoft.Json;
 using System.Linq;
 using System.Net;
 
-
 using _247.Resources;
 
 namespace _247
@@ -360,7 +359,7 @@ namespace _247
             if (_isDirectionsShown)
             {
                 // Center map on the starting point (phone location) and zoom quite close
-                MyMap.SetView(MyCoordinate, 16, MapAnimationKind.Parabolic);
+                MyMap.SetView(MyCoordinate, 20, MapAnimationKind.Parabolic);
                 ShowDirections();
             }
             else
@@ -644,7 +643,7 @@ namespace _247
                 if (_isDirectionsShown)
                 {
                     // Center map on the starting point (phone location) and zoom quite close
-                    MyMap.SetView(MyCoordinate, 16, MapAnimationKind.Parabolic);
+                    MyMap.SetView(MyCoordinate, 20, MapAnimationKind.Parabolic);
                 }
                 else
                 {
