@@ -13,6 +13,11 @@ namespace _247
 {
     public partial class MainPage : PhoneApplicationPage
     {
+        //Constantes que indican a categoria a la que se esta traspasando
+        public static int URGENCIA = 0, FARMACIA = 1,
+                VETERINARIO = 2, SUPERMERCADO = 3, HOSPEDAJE = 4,
+                SERVICIOS = 5, RESTAURANT = 6, BOTILLERIA = 7,
+                ENTRETENCION = 8;
         // Constructor
         public MainPage()
         {
@@ -20,6 +25,12 @@ namespace _247
 
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
+        }
+
+        private void cambiarPagina(int categoria)
+        {
+            NavigationService.Navigate(new Uri("/Mapa.xaml", UriKind.Relative));
+            Globales.categoria = categoria;
         }
 
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -32,54 +43,57 @@ namespace _247
         {
         	// TODO: Add event handler implementation here.
 			NavigationService.Navigate(new Uri("/Mapa.xaml", UriKind.Relative));
+            cambiarPagina(URGENCIA);
         }
 
         private void Image_Tap_1(object sender, System.Windows.Input.GestureEventArgs e)
         {
         	// TODO: Add event handler implementation here.
-			NavigationService.Navigate(new Uri("/Mapa.xaml", UriKind.Relative));
+            cambiarPagina(FARMACIA);
+			
         }
 
         private void Image_Tap_2(object sender, System.Windows.Input.GestureEventArgs e)
         {
-        	// TODO: Add event handler implementation here.
-			NavigationService.Navigate(new Uri("/Mapa.xaml", UriKind.Relative));
+            cambiarPagina(VETERINARIO);
+            
+			
         }
 
         private void Image_Tap_3(object sender, System.Windows.Input.GestureEventArgs e)
         {
-        	// TODO: Add event handler implementation here.
-			NavigationService.Navigate(new Uri("/Mapa.xaml", UriKind.Relative));
+            cambiarPagina(SUPERMERCADO);
+            
         }
 
         private void Image_Tap_4(object sender, System.Windows.Input.GestureEventArgs e)
         {
-        	// TODO: Add event handler implementation here.
-			NavigationService.Navigate(new Uri("/Mapa.xaml", UriKind.Relative));
+            cambiarPagina(HOSPEDAJE);
+           
         }
 
         private void Image_Tap_5(object sender, System.Windows.Input.GestureEventArgs e)
         {
-        	// TODO: Add event handler implementation here.
-			NavigationService.Navigate(new Uri("/Mapa.xaml", UriKind.Relative));
+            cambiarPagina(SERVICIOS);
+            
         }
 
         private void Image_Tap_6(object sender, System.Windows.Input.GestureEventArgs e)
         {
-        	// TODO: Add event handler implementation here.
-			NavigationService.Navigate(new Uri("/Mapa.xaml", UriKind.Relative));
+            cambiarPagina(RESTAURANT);
+           
         }
 
         private void Image_Tap_7(object sender, System.Windows.Input.GestureEventArgs e)
         {
-        	// TODO: Add event handler implementation here.
-			NavigationService.Navigate(new Uri("/Mapa.xaml", UriKind.Relative));
+            cambiarPagina(BOTILLERIA);
+            
         }
 
         private void Image_Tap_8(object sender, System.Windows.Input.GestureEventArgs e)
         {
-        	// TODO: Add event handler implementation here.
-			NavigationService.Navigate(new Uri("/Mapa.xaml", UriKind.Relative));
+            cambiarPagina(ENTRETENCION);
+            
         }
 
         private void Image_Tap_9(object sender, System.Windows.Input.GestureEventArgs e)

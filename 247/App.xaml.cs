@@ -7,7 +7,10 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using _247.Resources;
+using Microsoft.Phone.Notification;
 using Facebook.Client;
+using Microsoft.WindowsAzure.MobileServices;
+using Newtonsoft.Json;
 using _247.ViewModel;
 
 namespace _247
@@ -24,6 +27,12 @@ namespace _247
         public static bool isAuthenticated = false;
         public static FacebookSessionClient FacebookSessionClient = new FacebookSessionClient(Constants.FacebookAppId);
 
+
+
+        public static MobileServiceClient MobileService = new MobileServiceClient(
+           "https://aplicacion-24-7.azure-mobile.net/",
+           "TGrvnHeOmXcNsHzqwpYImZfEcJDBDp59"
+        );
 
         /// <summary>
         /// Constructor for the Application object.

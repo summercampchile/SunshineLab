@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using System.Device.Location;
 using System.IO.IsolatedStorage;
-using System.Linq;
-using System.Net;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Controls;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Windows.Devices.Geolocation;
 using Microsoft.Phone.Controls;
@@ -17,6 +14,11 @@ using Microsoft.Phone.Maps.Controls;
 using Microsoft.Phone.Maps.Services;
 using Microsoft.Phone.Shell;
 using Microsoft.Phone.Tasks;
+using Microsoft.WindowsAzure.MobileServices;
+using Newtonsoft.Json;
+using System.Linq;
+using System.Net;
+
 
 using _247.Resources;
 
@@ -25,41 +27,107 @@ namespace _247
     public partial class Mapa : PhoneApplicationPage
     {
 
+        private MobileServiceCollection<Lugares, Lugares> lugares;
+        private IMobileServiceTable<Lugares> tablaLugares = App.MobileService.GetTable<Lugares>();
+
         public Mapa()
         {
             InitializeComponent();
             Settings = IsolatedStorageSettings.ApplicationSettings;
         }
 
-        public void showCategorizedPoints() 
+        /// <summary>
+        /// Inserta las localizaciones de los lugares en el mapa
+        /// </summary>
+        private async void addLocations()
         {
+            ShowProgressIndicator(AppResources.GettingLocationProgressText);
+            // This code refreshes the entries in the list view be querying the TodoItems table.
+            // The query excludes completed TodoItems
+            try
+            {
+                //MessageBox.Show("debug de categoria: " + Globales.categoria);
+                lugares = await tablaLugares
+                    .Where(tablaTemporal => tablaTemporal.Categoria == Globales.categoria)
+                    .ToCollectionAsync();
 
-            //SearchForTerm("capri 1612, maipu, santiago");
-            //SearchForTerm("Alberto Llona 1724, maipu, santiago");
-            //SearchForTerm("Los Pajaritos 2222, maipu, santiago");
-            //double latitud = -33.417261;
-            //double longitud =  -70.5934908;
+                //MessageBox.Show("puntos cargados desde azure po loco, ejempo: " + lugares[0].Nombre + "\nLatitud: " + lugares[0].Latitud, AppResources.ApplicationTitle, MessageBoxButton.OK);
+            }
+            catch (MobileServiceInvalidOperationException e)
+            {
+                MessageBox.Show(e.Message, "Error al cargar los lugares", MessageBoxButton.OK);
+            }
 
-
-            double latitud = Globales.latitud;
-            double longitud = Globales.longitud;
-
-            double latitud2 = -33.417261;
-            double longitud2 = -70.5934908;
-            List<GeoCoordinate> routeCoordinates = new List<GeoCoordinate>();
-            //var layer = new MapLayer();
-            var coordenadaOrigen = new GeoCoordinate(latitud2, longitud2);
-            var coordenadaDestino = new GeoCoordinate(latitud, longitud);
-            
-            //MyCoordinates.Add(coordenadaOrigen);
-
-            // Route from current location to first search result
-            
-            routeCoordinates.Add(coordenadaOrigen);
-            routeCoordinates.Add(coordenadaDestino);
-            CalculateRoute(routeCoordinates);        
+            //se hace un if para evitar que trate de insertar lugares nulos a a lista
+            if (lugares != null)
+            {
+                foreach (Lugares lugar in lugares)
+                {
+                    var punto = new GeoCoordinate(lugar.Latitud, lugar.Longitud);
+                    MyCoordinates.Add(punto);
+                }
+            }
+            //despues de agrgar todos los puntos a la lista sincronicamente, se encarga de dibujarlos
+            DrawMapMarkers();
+            HideProgressIndicator();
         }
 
+
+        //por un tema de optimización, solo baja la informacion completa del punto al cual se le hace click.
+        //si bien causa una pequeña espera al hacer click en e punto, evita una espera mayor (y gasto de servidor)
+        //si bajara toda a info de todos los puntos al principio.
+        private void showPointInformation(double latitud, double longitud)
+        {
+            ShowProgressIndicator(AppResources.GettingLocationProgressText);
+            try
+            {
+                foreach (Lugares lugar in lugares)
+                {
+                    if ((lugar.Latitud == latitud) && (lugar.Longitud == longitud))
+                        MessageBox.Show("Nombre:" + lugar.Nombre + "\n" + "Horario: " + lugar.Horario + "\n" + "Telefono:" + lugar.Telefono + "\n", AppResources.ApplicationTitle, MessageBoxButton.OK);
+                }
+            }
+            catch (MobileServiceInvalidOperationException e)
+            {
+                MessageBox.Show(e.Message, "No se pudo cargar el puto", MessageBoxButton.OK);
+            }
+            HideProgressIndicator();
+        }
+
+        /// <summary>
+        /// Genera la ruta desde un punto seleccionado (no olvidar colocar el parametro despues)
+        /// hacia el punto georreferenciado actual ;)
+        /// </summary>
+        private void showCategorizedPoints(double latitud, double longitud)
+        {
+            ShowProgressIndicator(AppResources.GettingLocationProgressText);
+            List<GeoCoordinate> routeCoordinates = new List<GeoCoordinate>();
+
+            var coordenadaDestino = new GeoCoordinate(latitud, longitud);
+
+            // Route from current location to first search result
+            GetCurrentCoordinate();
+
+            // Borra rutas anteriores que hayan sido creadas
+            if (MyMapRoute != null)
+            {
+                MyMap.RemoveRoute(MyMapRoute);
+            }
+
+            //solo hace la ruta y el punto si es que esta georreferenciado
+            if (MyCoordinate != null)
+            {
+                routeCoordinates.Add(MyCoordinate);
+                routeCoordinates.Add(coordenadaDestino);
+                CalculateRoute(routeCoordinates);
+                showPointInformation(latitud, longitud);
+            }
+            else
+            {
+                MessageBox.Show(AppResources.NoCurrentLocationMessageBoxText, AppResources.ApplicationTitle, MessageBoxButton.OK);
+            }
+            HideProgressIndicator();
+        }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
@@ -76,10 +144,11 @@ namespace _247
                     LocationPanel.Visibility = Visibility.Collapsed;
                     BuildApplicationBar();
                     GetCurrentCoordinate();
+                    addLocations();
                 }
             }
             DrawMapMarkers();
-            
+
         }
 
         /// <summary>
@@ -166,14 +235,12 @@ namespace _247
             if (_isLocationAllowed)
             {
                 GetCurrentCoordinate();
-                showCategorizedPoints();
             }
             else
             {
                 MessageBoxResult result = MessageBox.Show(AppResources.LocationUsageQueryText,
                                                           AppResources.ApplicationTitle,
                                                           MessageBoxButton.OKCancel);
-
                 if (result == MessageBoxResult.OK)
                 {
                     _isLocationAllowed = true;
@@ -590,11 +657,21 @@ namespace _247
             GeoCoordinate geoCoordinate = (GeoCoordinate)p.Tag;
             if (MyReverseGeocodeQuery == null || !MyReverseGeocodeQuery.IsBusy)
             {
-                MyReverseGeocodeQuery = new ReverseGeocodeQuery();
-                MyReverseGeocodeQuery.GeoCoordinate = new GeoCoordinate(geoCoordinate.Latitude, geoCoordinate.Longitude);
-                MyReverseGeocodeQuery.QueryCompleted += ReverseGeocodeQuery_QueryCompleted;
-                MyReverseGeocodeQuery.QueryAsync();
+                //MyReverseGeocodeQuery = new ReverseGeocodeQuery();
+                //MyReverseGeocodeQuery.GeoCoordinate = new GeoCoordinate(geoCoordinate.Latitude, geoCoordinate.Longitude);
+                //MyReverseGeocodeQuery.QueryCompleted += ReverseGeocodeQuery_QueryCompleted;
+                //MyReverseGeocodeQuery.QueryAsync();
+
+                //toma a ruta desde el punto actual hasta el seleccionado ademas de mostrar su info desde azure
+                showCategorizedPoints(geoCoordinate.Latitude, geoCoordinate.Longitude);
             }
+        }
+
+        private void Image_Clicker(object sender, EventArgs e)
+        {
+            Image i = (Image)sender;
+            GeoCoordinate geoCoordinate = (GeoCoordinate)i.Tag;
+            showCategorizedPoints(geoCoordinate.Latitude, geoCoordinate.Longitude);
         }
 
         /// <summary>
@@ -699,24 +776,68 @@ namespace _247
         /// <param name="mapLayer">Map layer to add the marker</param>
         private void DrawMapMarker(GeoCoordinate coordinate, Color color, MapLayer mapLayer)
         {
-            // Create a map marker
-            Polygon polygon = new Polygon();
-            polygon.Points.Add(new Point(0, 0));
-            polygon.Points.Add(new Point(0, 75));
-            polygon.Points.Add(new Point(25, 0));
-            polygon.Fill = new SolidColorBrush(color);
 
-            // Enable marker to be tapped for location information
-            polygon.Tag = new GeoCoordinate(coordinate.Latitude, coordinate.Longitude);
-            polygon.MouseLeftButtonUp += new MouseButtonEventHandler(Marker_Click);
 
-            // Create a MapOverlay and add marker.
-            MapOverlay overlay = new MapOverlay();
-            overlay.Content = polygon;
-            overlay.GeoCoordinate = new GeoCoordinate(coordinate.Latitude, coordinate.Longitude);
-            overlay.PositionOrigin = new Point(0.0, 1.0);
-            mapLayer.Add(overlay);
+            if (color != Colors.Red)
+            {
+                Image image = new Image();
+                //ruta de la imagen
+                image.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/farmacia_1.png", UriKind.Relative));
+
+                //Propiedades de la imagen
+                image.Opacity = 0.8;
+                image.Stretch = System.Windows.Media.Stretch.None;
+
+                //agregar el click
+                image.Tag = new GeoCoordinate(coordinate.Latitude, coordinate.Longitude);
+                image.MouseLeftButtonUp += new MouseButtonEventHandler(Image_Clicker);
+
+
+                // Create a MapOverlay and add marker.
+                MapOverlay overlay = new MapOverlay();
+                overlay.Content = image;
+                overlay.GeoCoordinate = new GeoCoordinate(coordinate.Latitude, coordinate.Longitude);
+                overlay.PositionOrigin = new Point(0.5, 1.0);
+                mapLayer.Add(overlay);
+            }
+            else
+            {
+                // Create a map marker
+                Polygon polygon = new Polygon();
+                polygon.Points.Add(new Point(0, 0));
+
+                polygon.Points.Add(new Point(0, 75));
+                polygon.Points.Add(new Point(25, 0));
+                polygon.Fill = new SolidColorBrush(color);
+
+                // Enable marker to be tapped for location information
+                polygon.Tag = new GeoCoordinate(coordinate.Latitude, coordinate.Longitude);
+                polygon.MouseLeftButtonUp += new MouseButtonEventHandler(Marker_Click);
+
+                // Create a MapOverlay and add marker.
+                MapOverlay overlay = new MapOverlay();
+                overlay.Content = polygon;
+                overlay.GeoCoordinate = new GeoCoordinate(coordinate.Latitude, coordinate.Longitude);
+                overlay.PositionOrigin = new Point(0.0, 1.0);
+                mapLayer.Add(overlay);
+            }
         }
+
+        //private void DrawMapImage(Geocoordinate coordinate, MapLayer mapLayer) 
+        //{
+        //    Image image = new Image();
+        //    //ruta de la imagen
+        //    image.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/farmacia_1.png", UriKind.Relative));
+        //    //Propiedades de la imagen
+        //    image.Opacity = 0.8;
+        //    image.Stretch = System.Windows.Media.Stretch.None;
+        //    // Create a MapOverlay and add marker.
+        //    MapOverlay overlay = new MapOverlay();
+        //    overlay.Content = image;
+        //    overlay.GeoCoordinate = new GeoCoordinate(coordinate.Latitude, coordinate.Longitude);
+        //    overlay.PositionOrigin = new Point(0.5, 1.0);
+        //    mapLayer.Add(overlay);
+        //}
 
         /// <summary>
         /// Helper method to draw location accuracy on top of the map.
@@ -925,5 +1046,3 @@ namespace _247
         private IsolatedStorageSettings Settings;
     }
 }
-  
-        

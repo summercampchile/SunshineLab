@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace _247
 {
-     class Globales
+    class Globales
     {
-        public static double latitud;
-        public static double longitud; 
+        public static int categoria;
     }
 }
