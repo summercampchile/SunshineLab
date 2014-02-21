@@ -90,7 +90,7 @@ namespace _247
                         string message = "Nombre:" + lugar.Nombre + "\n" +
                             "Horario: " + lugar.Horario + "\n" +
                             "Telefono:" + lugar.Telefono + "\n" +
-                            "¿Mas Informacion?";
+                            "¿Voy?";
                         var respuesta = MessageBox.Show(message, 
                             AppResources.ApplicationTitle,  MessageBoxButton.OKCancel);
                         
