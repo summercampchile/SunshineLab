@@ -48,8 +48,6 @@ namespace _247
 
                 imageStream = e.ChosenPhoto;
             }
-
-            
         }
 
         private void Image_Tap_2(object sender, System.Windows.Input.GestureEventArgs e)

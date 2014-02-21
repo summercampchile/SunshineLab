@@ -210,6 +210,7 @@
     </Content>
     <Content Include="Assets\farmacia_1.png" />
     <Content Include="Assets\Logo_2.png" />
+    <Content Include="Assets\nube_blanca.png" />
     <Content Include="Assets\Tiles\24-7.png" />
     <Content Include="Assets\Tiles\247pequeña.png" />
     <Content Include="Assets\Tiles\AlignmentGrid.png" />

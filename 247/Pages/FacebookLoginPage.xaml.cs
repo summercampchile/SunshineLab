@@ -39,7 +39,8 @@ namespace _247.Pages
                 App.AccessToken = session.AccessToken;
                 App.FacebookId = session.FacebookId;
 
-                Dispatcher.BeginInvoke(() => NavigationService.Navigate(new Uri("/Pages/LandingPage.xaml", UriKind.Relative)));
+                //Dispatcher.BeginInvoke(() => NavigationService.Navigate(new Uri("/Pages/LandingPage.xaml", UriKind.Relative)));
+                Dispatcher.BeginInvoke(() => NavigationService.Navigate(new Uri("MainPage.xaml", UriKind.Relative)));
             }
             catch (InvalidOperationException e)
             {

@@ -86,17 +86,23 @@ namespace _247
                 foreach (Lugares lugar in lugares)
                 {
                     if ((lugar.Latitud == latitud) && (lugar.Longitud == longitud))
-                        MessageBox.Show("Nombre:" + lugar.Nombre + "\n" + "Horario: " + lugar.Horario + "\n" + "Telefono:" + lugar.Telefono + "\n", AppResources.ApplicationTitle, MessageBoxButton.OK);
+                    {
+                        var respuesta = MessageBox.Show("Nombre:" + lugar.Nombre + "\n" +
+                            "Horario: " + lugar.Horario + "\n" +
+                            "Telefono:" + lugar.Telefono + "\n"
+                                    , AppResources.ApplicationTitle, MessageBoxButton.OK);
+
+
+                    }
                 }
             }
             catch (MobileServiceInvalidOperationException e)
             {
-                MessageBox.Show(e.Message, "No se pudo cargar el puto", MessageBoxButton.OK);
+                MessageBox.Show(e.Message, "No se pudo cargar el punto", MessageBoxButton.OK);
             }
             HideProgressIndicator();
         }
 
-        
         /// <summary>
         /// Genera la ruta desde un punto seleccionado (no olvidar colocar el parametro despues)
         /// hacia el punto georreferenciado actual ;)
@@ -126,6 +132,7 @@ namespace _247
                 routeCoordinates.Add(coordenadaDestino);
                 CalculateRoute(routeCoordinates);
                 showPointInformation(latitud, longitud);
+                
             }
             else
             {
@@ -157,7 +164,6 @@ namespace _247
                 }
             }
             DrawMapMarkers();
-
         }
 
         /// <summary>
@@ -663,8 +669,8 @@ namespace _247
         {
             Polygon p = (Polygon)sender;
             GeoCoordinate geoCoordinate = (GeoCoordinate)p.Tag;
-            if (MyReverseGeocodeQuery == null || !MyReverseGeocodeQuery.IsBusy)
-            {
+            //if (MyReverseGeocodeQuery == null || !MyReverseGeocodeQuery.IsBusy)
+            //{
                 //MyReverseGeocodeQuery = new ReverseGeocodeQuery();
                 //MyReverseGeocodeQuery.GeoCoordinate = new GeoCoordinate(geoCoordinate.Latitude, geoCoordinate.Longitude);
                 //MyReverseGeocodeQuery.QueryCompleted += ReverseGeocodeQuery_QueryCompleted;
@@ -672,14 +678,16 @@ namespace _247
 
                 //toma a ruta desde el punto actual hasta el seleccionado ademas de mostrar su info desde azure
                 showCategorizedPoints(geoCoordinate.Latitude, geoCoordinate.Longitude);
-            }
+            //}
         }
 
-        private void Image_Clicker(object sender, EventArgs e)
+        private void Image_Click(object sender, EventArgs e)
         {
             Image i = (Image)sender;
             GeoCoordinate geoCoordinate = (GeoCoordinate)i.Tag;
             showCategorizedPoints(geoCoordinate.Latitude, geoCoordinate.Longitude);
+            //pa la casa en la presentacion
+            //showDialogBox(geoCoordinate);
         }
 
         /// <summary>
@@ -731,7 +739,7 @@ namespace _247
                 {
                     MyCoordinate = new GeoCoordinate(currentPosition.Coordinate.Latitude, currentPosition.Coordinate.Longitude);
                     DrawMapMarkers();
-                    MyMap.SetView(MyCoordinate, 10, MapAnimationKind.Parabolic);
+                    MyMap.SetView(MyCoordinate, 15, MapAnimationKind.Parabolic);
                 });
             }
             catch (Exception)
@@ -772,7 +780,6 @@ namespace _247
                     DrawMapMarker(MyRoute.Legs[0].Maneuvers[i].StartGeoCoordinate, Colors.Purple, mapLayer);
                 }
             }
-
             MyMap.Layers.Add(mapLayer);
         }
 
@@ -784,8 +791,6 @@ namespace _247
         /// <param name="mapLayer">Map layer to add the marker</param>
         private void DrawMapMarker(GeoCoordinate coordinate, Color color, MapLayer mapLayer)
         {
-
-
             if (color != Colors.Red)
             {
                 Image image = new Image();
@@ -798,8 +803,7 @@ namespace _247
 
                 //agregar el click
                 image.Tag = new GeoCoordinate(coordinate.Latitude, coordinate.Longitude);
-                image.MouseLeftButtonUp += new MouseButtonEventHandler(Image_Clicker);
-
+                image.MouseLeftButtonUp += new MouseButtonEventHandler(Image_Click);
 
                 // Create a MapOverlay and add marker.
                 MapOverlay overlay = new MapOverlay();
@@ -829,6 +833,32 @@ namespace _247
                 overlay.PositionOrigin = new Point(0.0, 1.0);
                 mapLayer.Add(overlay);
             }
+        }
+
+        /// <summary>
+        /// Mostrar la super nube
+        /// </summary>
+        /// <param name="coordinate">coordenada del lugar</param>
+        /// <param name="mapLayer">capa donde se agrega el elemento</param>
+        private void showDialogBox(GeoCoordinate coordinate) 
+        {
+            MapLayer mapLayer = new MapLayer();
+            //ruta de la imagen 
+            Image nube = new Image();
+            nube.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/nube_blanca.png", UriKind.Relative));
+
+            //Propiedades de la imagen
+            nube.Opacity = 0.8;
+            nube.Stretch = System.Windows.Media.Stretch.None;
+
+            // Create a MapOverlay and add marker       
+            MapOverlay overlay = new MapOverlay();
+            overlay.Content = nube;
+            overlay.GeoCoordinate = new GeoCoordinate(coordinate.Latitude, coordinate.Longitude);
+            overlay.PositionOrigin = new Point(0.3, 1.0);
+            mapLayer.Add(overlay);
+
+            MyMap.Layers.Add(mapLayer);
         }
 
         //private void DrawMapImage(Geocoordinate coordinate, MapLayer mapLayer) 
