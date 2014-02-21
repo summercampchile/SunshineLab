@@ -87,12 +87,16 @@ namespace _247
                 {
                     if ((lugar.Latitud == latitud) && (lugar.Longitud == longitud))
                     {
-                        var respuesta = MessageBox.Show("Nombre:" + lugar.Nombre + "\n" +
+                        string message = "Nombre:" + lugar.Nombre + "\n" +
                             "Horario: " + lugar.Horario + "\n" +
-                            "Telefono:" + lugar.Telefono + "\n"
-                                    , AppResources.ApplicationTitle, MessageBoxButton.OK);
-
-
+                            "Telefono:" + lugar.Telefono + "\n" +
+                            "¿Mas Informacion?";
+                        var respuesta = MessageBox.Show(message, 
+                            AppResources.ApplicationTitle,  MessageBoxButton.OKCancel);
+                        
+                        //Si coloca que quiere ver mas, podra comentar
+                        if (respuesta == MessageBoxResult.OK)
+                            NavigationService.Navigate(new Uri("/Comentarios.xaml", UriKind.Relative));
                     }
                 }
             }
