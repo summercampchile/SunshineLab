@@ -19,6 +19,7 @@ using Newtonsoft.Json;
 using System.Linq;
 using System.Net;
 
+
 using _247.Resources;
 
 namespace _247
@@ -97,6 +98,10 @@ namespace _247
                         //Si coloca que quiere ver mas, podra comentar
                         if (respuesta == MessageBoxResult.OK)
                             NavigationService.Navigate(new Uri("/Comentarios.xaml", UriKind.Relative));
+                        
+                        //abre o cierra a cuadro de dialogo d ea informacion
+                        if (!_isMessageOpen)
+                            _isMessageOpen = true;
                     }
                 }
             }
@@ -136,7 +141,8 @@ namespace _247
                 routeCoordinates.Add(coordenadaDestino);
                 CalculateRoute(routeCoordinates);
                 showPointInformation(latitud, longitud);
-                
+                //centra el mapa en el cuadro de dialogo
+                MyMap.Center = coordenadaDestino;
             }
             else
             {
@@ -690,8 +696,10 @@ namespace _247
             Image i = (Image)sender;
             GeoCoordinate geoCoordinate = (GeoCoordinate)i.Tag;
             showCategorizedPoints(geoCoordinate.Latitude, geoCoordinate.Longitude);
-            //pa la casa en la presentacion
-            //showDialogBox(geoCoordinate);
+            
+            //activa la venta para que se abierta
+            SelectedCoordinate = new GeoCoordinate(geoCoordinate.Latitude, geoCoordinate.Longitude); ;
+           
         }
 
         /// <summary>
@@ -837,6 +845,10 @@ namespace _247
                 overlay.PositionOrigin = new Point(0.0, 1.0);
                 mapLayer.Add(overlay);
             }
+
+            //mostrar el cuadro de diaogo personalizado
+            if (_isMessageOpen & (SelectedCoordinate != null))
+                showDialogBox();
         }
 
         /// <summary>
@@ -844,9 +856,14 @@ namespace _247
         /// </summary>
         /// <param name="coordinate">coordenada del lugar</param>
         /// <param name="mapLayer">capa donde se agrega el elemento</param>
-        private void showDialogBox(GeoCoordinate coordinate) 
+        private void showDialogBox() 
         {
+            //declarar una nueva capa para los mensajes
             MapLayer mapLayer = new MapLayer();
+
+            //crear un canvas para la imagen
+            Canvas dialogBox = new Canvas();
+            
             //ruta de la imagen 
             Image nube = new Image();
             nube.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/nube_blanca.png", UriKind.Relative));
@@ -855,31 +872,37 @@ namespace _247
             nube.Opacity = 0.8;
             nube.Stretch = System.Windows.Media.Stretch.None;
 
+            //creando botones
+            Button btnVerMas = new Button();
+            Button btnCerrar = new Button();
+
+            //propiedades de los botones
+            btnVerMas.Content = "Ver Mas";
+            btnCerrar.Content = "Cerrar";
+
+            //acomodando en el Canvas
+            Canvas.SetTop(nube, -245);
+            Canvas.SetLeft(nube, -40);
+            Canvas.SetTop(btnVerMas, -200);
+            Canvas.SetLeft(btnVerMas, -45);
+            
+            //agregando elementos al canvas
+
+            dialogBox.Children.Add(nube);
+            dialogBox.Children.Add(btnVerMas);
+            dialogBox.Children.Add(btnCerrar);
+            
+
+
             // Create a MapOverlay and add marker       
             MapOverlay overlay = new MapOverlay();
-            overlay.Content = nube;
-            overlay.GeoCoordinate = new GeoCoordinate(coordinate.Latitude, coordinate.Longitude);
+            overlay.Content = dialogBox;
+            overlay.GeoCoordinate = new GeoCoordinate(SelectedCoordinate.Latitude, SelectedCoordinate.Longitude);
             overlay.PositionOrigin = new Point(0.3, 1.0);
             mapLayer.Add(overlay);
 
             MyMap.Layers.Add(mapLayer);
         }
-
-        //private void DrawMapImage(Geocoordinate coordinate, MapLayer mapLayer) 
-        //{
-        //    Image image = new Image();
-        //    //ruta de la imagen
-        //    image.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/farmacia_1.png", UriKind.Relative));
-        //    //Propiedades de la imagen
-        //    image.Opacity = 0.8;
-        //    image.Stretch = System.Windows.Media.Stretch.None;
-        //    // Create a MapOverlay and add marker.
-        //    MapOverlay overlay = new MapOverlay();
-        //    overlay.Content = image;
-        //    overlay.GeoCoordinate = new GeoCoordinate(coordinate.Latitude, coordinate.Longitude);
-        //    overlay.PositionOrigin = new Point(0.5, 1.0);
-        //    mapLayer.Add(overlay);
-        //}
 
         /// <summary>
         /// Helper method to draw location accuracy on top of the map.
@@ -1029,6 +1052,9 @@ namespace _247
         // My current location
         private GeoCoordinate MyCoordinate = null;
 
+        //Selected Coordinate
+        private GeoCoordinate SelectedCoordinate = null;
+
         // List of coordinates representing search hits / destination of route
         private List<GeoCoordinate> MyCoordinates = new List<GeoCoordinate>();
 
@@ -1066,6 +1092,11 @@ namespace _247
         /// True when route is being searched, otherwise false
         /// </summary>
         private bool _isRouteSearch = false;
+       
+        /// <summary>
+        /// True when a custom dilalog message is displayed 
+        /// </summary>
+        private bool _isMessageOpen = false;
 
         /// <summary>
         /// True when directions are shown, otherwise false

@@ -112,6 +112,7 @@
     <Compile Include="Mapa.xaml.cs">
       <DependentUpon>Mapa.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\DialogBox.cs" />
     <Compile Include="Pages\FacebookLoginPage.xaml.cs">
       <DependentUpon>FacebookLoginPage.xaml</DependentUpon>
     </Compile>
@@ -211,6 +212,7 @@
     <Content Include="Assets\farmacia_1.png" />
     <Content Include="Assets\Logo_2.png" />
     <Content Include="Assets\nube_blanca.png" />
+    <Content Include="Assets\nube_boton.png" />
     <Content Include="Assets\Tiles\24-7.png" />
     <Content Include="Assets\Tiles\247pequeña.png" />
     <Content Include="Assets\Tiles\AlignmentGrid.png" />
