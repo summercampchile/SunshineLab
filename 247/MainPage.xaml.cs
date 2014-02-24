@@ -13,11 +13,8 @@ namespace _247
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        //Constantes que indican a categoria a la que se esta traspasando
-        public static int URGENCIA = 0, FARMACIA = 1,
-                VETERINARIO = 2, SUPERMERCADO = 3, HOSPEDAJE = 4,
-                SERVICIOS = 5, RESTAURANT = 6, BOTILLERIA = 7,
-                ENTRETENCION = 8;
+        
+        
         // Constructor
         public MainPage()
         {
@@ -43,56 +40,56 @@ namespace _247
         {
         	// TODO: Add event handler implementation here.
 			NavigationService.Navigate(new Uri("/Mapa.xaml", UriKind.Relative));
-            cambiarPagina(URGENCIA);
+            cambiarPagina(Globales.URGENCIA);
         }
 
         private void Image_Tap_1(object sender, System.Windows.Input.GestureEventArgs e)
         {
         	// TODO: Add event handler implementation here.
-            cambiarPagina(FARMACIA);
+            cambiarPagina(Globales.FARMACIA);
 			
         }
 
         private void Image_Tap_2(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            cambiarPagina(VETERINARIO);
+            cambiarPagina(Globales.VETERINARIO);
             
 			
         }
 
         private void Image_Tap_3(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            cambiarPagina(SUPERMERCADO);
+            cambiarPagina(Globales.SUPERMERCADO);
             
         }
 
         private void Image_Tap_4(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            cambiarPagina(HOSPEDAJE);
+            cambiarPagina(Globales.HOSPEDAJE);
            
         }
 
         private void Image_Tap_5(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            cambiarPagina(SERVICIOS);
+            cambiarPagina(Globales.SERVICIOS);
             
         }
 
         private void Image_Tap_6(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            cambiarPagina(RESTAURANT);
+            cambiarPagina(Globales.RESTAURANT);
            
         }
 
         private void Image_Tap_7(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            cambiarPagina(BOTILLERIA);
+            cambiarPagina(Globales.BOTILLERIA);
             
         }
 
         private void Image_Tap_8(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            cambiarPagina(ENTRETENCION);
+            cambiarPagina(Globales.ENTRETENCION);
             
         }
 

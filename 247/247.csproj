@@ -199,6 +199,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="24-7.png" />
+    <Content Include="Assets\00_ubicacion_actual.png" />
+    <Content Include="Assets\01_urgencias.png" />
+    <Content Include="Assets\02_farmacias.png" />
+    <Content Include="Assets\03_veterinarias.png" />
+    <Content Include="Assets\04_mercados.png" />
+    <Content Include="Assets\05_hospedajes.png" />
+    <Content Include="Assets\06_servicios.png" />
+    <Content Include="Assets\07_restaurantes.png" />
+    <Content Include="Assets\08_botillerias.png" />
+    <Content Include="Assets\09_entretencion.png" />
     <Content Include="Assets\247pequeña.png" />
     <Content Include="Assets\AlignmentGrid.png" />
     <Content Include="Assets\appbar.download.png" />

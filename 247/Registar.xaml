@@ -29,13 +29,13 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
         	<Image x:Name="ImgPerfil" Margin="17,-4,275,448" Source="Assets/Icon_face.png" Stretch="Fill"/>
-        	<TextBox HorizontalAlignment="Left" Height="72" Margin="5,194,0,0" TextWrapping="Wrap" Text="Nombre" VerticalAlignment="Top" Width="230"/>
-        	<TextBox HorizontalAlignment="Left" Height="72" Margin="5,254,0,0" TextWrapping="Wrap" Text="Ciudad" VerticalAlignment="Top" Width="230"/>
-        	<TextBox Height="72" Margin="221,194,5,0" TextWrapping="Wrap" Text="Apellido" VerticalAlignment="Top"/>
-        	<TextBox HorizontalAlignment="Left" Height="72" Margin="221,254,0,0" TextWrapping="Wrap" Text="Región" VerticalAlignment="Top" Width="230"/>
-        	<TextBox Height="72" Margin="4,314,4,0" TextWrapping="Wrap" Text="Mail" VerticalAlignment="Top"/>
-        	<TextBox Height="72" Margin="4,374,4,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top"/>
-        	<TextBox Height="72" Margin="4,434,4,0" TextWrapping="Wrap" Text="Confirmar Password" VerticalAlignment="Top"/>
+        	<TextBox Name="txtNombre" HorizontalAlignment="Left" Height="72" Margin="5,194,0,0" TextWrapping="Wrap" Text="Nombre" VerticalAlignment="Top" Width="230" GotFocus="txtNombre_GotFocus" LostFocus="txtNombre_LostFocus" Foreground="Gray"/>
+        	<TextBox Name="txtCiudad" HorizontalAlignment="Left" Height="72" Margin="5,254,0,0" TextWrapping="Wrap" Text="Ciudad" VerticalAlignment="Top" Width="230" GotFocus="txtCiudad_GotFocus" LostFocus="txtCiudad_LostFocus" Foreground="Gray"/>
+        	<TextBox Name="txtApellido" Height="72" Margin="221,194,5,0" TextWrapping="Wrap" Text="Apellido" VerticalAlignment="Top" GotFocus="txtApellido_GotFocus" LostFocus="txtApellido_LostFocus" Foreground="Gray" />
+        	<TextBox Name="txtRegion" HorizontalAlignment="Left" Height="72" Margin="221,254,0,0" TextWrapping="Wrap" Text="Region" VerticalAlignment="Top" Width="230" LostFocus="txtRegion_LostFocus" GotFocus="txtRegion_GotFocus" Foreground="Gray"/>
+        	<TextBox Name="txtMail" Height="72" Margin="4,314,4,0" TextWrapping="Wrap" Text="Mail" VerticalAlignment="Top" InputScope="EmailUserName" GotFocus="txtMail_GotFocus" LostFocus="txtMail_LostFocus" Foreground="Gray" />
+        	<TextBox Name="txtPassword" Height="72" Margin="4,374,4,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" GotFocus="txtPassword_GotFocus" LostFocus="txtPassword_LostFocus" Foreground="Gray"/>
+        	<TextBox Name="txtConfirmarPassword" Height="72" Margin="4,434,4,0" TextWrapping="Wrap" Text="Confirmar Password" VerticalAlignment="Top" GotFocus="txtConfirmarPassword_GotFocus" LostFocus="txtConfirmarPassword_LostFocus" Foreground="Gray"/>
         	<Image Margin="269,104,19,448" Source="Assets/registro_boton_1.png" Stretch="Fill" Tap="Image_Tap_1"/>
         	<Image Margin="293,513,18,30" Source="Assets/registro_boton_2.png" Stretch="Fill" Tap="Image_Tap_2"/>
         	<Image Margin="18,-68,-2,642" Source="Assets/titulo_registro.png" Stretch="Fill"/>

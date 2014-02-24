@@ -142,8 +142,6 @@ namespace _247
                 routeCoordinates.Add(coordenadaDestino);
                 CalculateRoute(routeCoordinates);
                 showPointInformation(latitud, longitud);
-                //centra el mapa en el cuadro de dialogo
-                MyMap.Center = coordenadaDestino;
             }
             else
             {
@@ -797,6 +795,35 @@ namespace _247
         }
 
         /// <summary>
+        /// Cargar la imagen con su icono correspondiente
+        /// </summary>
+        /// <returns></returns>
+        private Image IconoImagen() 
+        {
+            Image image = new Image();
+            if (Globales.categoria == Globales.FARMACIA)
+                image.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/02_farmacias.png", UriKind.Relative));
+            if (Globales.categoria == Globales.URGENCIA)
+                image.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/01_urgencias.png", UriKind.Relative));
+            if (Globales.categoria == Globales.VETERINARIO)
+                image.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/03_veterinarias", UriKind.Relative));
+            if (Globales.categoria == Globales.SUPERMERCADO)
+                image.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/04_mercados", UriKind.Relative));
+            if (Globales.categoria == Globales.HOSPEDAJE)
+                image.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/05_hospedajes.png", UriKind.Relative));
+            if (Globales.categoria == Globales.SERVICIOS)
+                image.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/06_servicios.png", UriKind.Relative));
+            if (Globales.categoria == Globales.RESTAURANT)
+                image.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/07_restaurantes.png", UriKind.Relative));
+            if (Globales.categoria == Globales.BOTILLERIA)
+                image.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/08_botillerias.png", UriKind.Relative));
+            if (Globales.categoria == Globales.ENTRETENCION)
+                image.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/09_entretencion.png", UriKind.Relative));
+            return image;
+        }
+
+
+        /// <summary>
         /// Helper method to draw a single marker on top of the map.
         /// </summary>
         /// <param name="coordinate">GeoCoordinate of the marker</param>
@@ -804,48 +831,28 @@ namespace _247
         /// <param name="mapLayer">Map layer to add the marker</param>
         private void DrawMapMarker(GeoCoordinate coordinate, Color color, MapLayer mapLayer)
         {
+
+            Image image = new Image();
+            //ruta de la imagen (depende si es e punto georreferenciado o no
             if (color != Colors.Red)
-            {
-                Image image = new Image();
-                //ruta de la imagen
-                image.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/farmacia_1.png", UriKind.Relative));
-
-                //Propiedades de la imagen
-                image.Opacity = 0.8;
-                image.Stretch = System.Windows.Media.Stretch.None;
-
-                //agregar el click
-                image.Tag = new GeoCoordinate(coordinate.Latitude, coordinate.Longitude);
-                image.MouseLeftButtonUp += new MouseButtonEventHandler(Image_Click);
-
-                // Create a MapOverlay and add marker.
-                MapOverlay overlay = new MapOverlay();
-                overlay.Content = image;
-                overlay.GeoCoordinate = new GeoCoordinate(coordinate.Latitude, coordinate.Longitude);
-                overlay.PositionOrigin = new Point(0.5, 1.0);
-                mapLayer.Add(overlay);
-            }
+                image = IconoImagen();
             else
-            {
-                // Create a map marker
-                Polygon polygon = new Polygon();
-                polygon.Points.Add(new Point(0, 0));
+                image.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/00_ubicacion_actual.png", UriKind.Relative));
+            
+            //Propiedades de la imagen
+            image.Opacity = 0.8;
+            image.Stretch = System.Windows.Media.Stretch.None;
 
-                polygon.Points.Add(new Point(0, 75));
-                polygon.Points.Add(new Point(25, 0));
-                polygon.Fill = new SolidColorBrush(color);
+            //agregar el click
+            image.Tag = new GeoCoordinate(coordinate.Latitude, coordinate.Longitude);
+            image.MouseLeftButtonUp += new MouseButtonEventHandler(Image_Click);
 
-                // Enable marker to be tapped for location information
-                polygon.Tag = new GeoCoordinate(coordinate.Latitude, coordinate.Longitude);
-                polygon.MouseLeftButtonUp += new MouseButtonEventHandler(Marker_Click);
-
-                // Create a MapOverlay and add marker.
-                MapOverlay overlay = new MapOverlay();
-                overlay.Content = polygon;
-                overlay.GeoCoordinate = new GeoCoordinate(coordinate.Latitude, coordinate.Longitude);
-                overlay.PositionOrigin = new Point(0.0, 1.0);
-                mapLayer.Add(overlay);
-            }
+            // Create a MapOverlay and add marker.
+            MapOverlay overlay = new MapOverlay();
+            overlay.Content = image;
+            overlay.GeoCoordinate = new GeoCoordinate(coordinate.Latitude, coordinate.Longitude);
+            overlay.PositionOrigin = new Point(0.5, 1.0);
+            mapLayer.Add(overlay);
 
             //mostrar el cuadro de diaogo personalizado
             //queda 

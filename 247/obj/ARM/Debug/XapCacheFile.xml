@@ -1,5 +1,15 @@
-﻿<xapCache source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\_247_Debug_ARM.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="24/02/2014 14:08:39">
-  <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\obj\ARM\Debug\247.dll" archivePath="247.dll" lastWriteTime="24/02/2014 14:08:33" />
+﻿<xapCache source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\_247_Debug_ARM.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="24/02/2014 16:10:39">
+  <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\obj\ARM\Debug\247.dll" archivePath="247.dll" lastWriteTime="24/02/2014 16:10:34" />
+  <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Assets\00_ubicacion_actual.png" archivePath="Assets\00_ubicacion_actual.png" lastWriteTime="24/02/2014 15:19:54" />
+  <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Assets\01_urgencias.png" archivePath="Assets\01_urgencias.png" lastWriteTime="24/02/2014 14:53:37" />
+  <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Assets\02_farmacias.png" archivePath="Assets\02_farmacias.png" lastWriteTime="24/02/2014 14:53:37" />
+  <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Assets\03_veterinarias.png" archivePath="Assets\03_veterinarias.png" lastWriteTime="24/02/2014 14:53:37" />
+  <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Assets\04_mercados.png" archivePath="Assets\04_mercados.png" lastWriteTime="24/02/2014 14:53:37" />
+  <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Assets\05_hospedajes.png" archivePath="Assets\05_hospedajes.png" lastWriteTime="24/02/2014 14:53:37" />
+  <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Assets\06_servicios.png" archivePath="Assets\06_servicios.png" lastWriteTime="24/02/2014 14:53:37" />
+  <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Assets\07_restaurantes.png" archivePath="Assets\07_restaurantes.png" lastWriteTime="24/02/2014 14:53:37" />
+  <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Assets\08_botillerias.png" archivePath="Assets\08_botillerias.png" lastWriteTime="24/02/2014 14:53:37" />
+  <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Assets\09_entretencion.png" archivePath="Assets\09_entretencion.png" lastWriteTime="24/02/2014 14:53:37" />
   <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Assets\247pequeña.png" archivePath="Assets\247pequeña.png" lastWriteTime="20/02/2014 6:13:22" />
   <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Assets\AlignmentGrid.png" archivePath="Assets\AlignmentGrid.png" lastWriteTime="20/02/2014 6:13:22" />
   <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Assets\appbar.download.png" archivePath="Assets\appbar.download.png" lastWriteTime="20/02/2014 6:13:22" />
