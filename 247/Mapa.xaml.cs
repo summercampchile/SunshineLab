@@ -19,13 +19,14 @@ using Newtonsoft.Json;
 using System.Linq;
 using System.Net;
 
-
 using _247.Resources;
 
 namespace _247
 {
     public partial class Mapa : PhoneApplicationPage
     {
+        //CONSTANTES
+        public static int DIALOG_TOP = -300, DIALOG_LEFT = -99;
 
         private MobileServiceCollection<Lugares, Lugares> lugares;
         private IMobileServiceTable<Lugares> tablaLugares = App.MobileService.GetTable<Lugares>();
@@ -88,11 +89,11 @@ namespace _247
                 {
                     if ((lugar.Latitud == latitud) && (lugar.Longitud == longitud))
                     {
-                        string message = "Nombre:" + lugar.Nombre + "\n" +
+                         _MyMessage = "Nombre:" + lugar.Nombre + "\n" +
                             "Horario: " + lugar.Horario + "\n" +
                             "Telefono:" + lugar.Telefono + "\n" +
                             "¿Voy?";
-                        var respuesta = MessageBox.Show(message, 
+                        var respuesta = MessageBox.Show(_MyMessage, 
                             AppResources.ApplicationTitle,  MessageBoxButton.OKCancel);
                         
                         //Si coloca que quiere ver mas, podra comentar
@@ -847,8 +848,9 @@ namespace _247
             }
 
             //mostrar el cuadro de diaogo personalizado
-            if (_isMessageOpen & (SelectedCoordinate != null))
-                showDialogBox();
+            //queda 
+            //if (_isMessageOpen & (SelectedCoordinate != null))
+            //  showDialogBox();
         }
 
         /// <summary>
@@ -870,7 +872,9 @@ namespace _247
 
             //Propiedades de la imagen
             nube.Opacity = 0.8;
-            nube.Stretch = System.Windows.Media.Stretch.None;
+            nube.Stretch = System.Windows.Media.Stretch.Fill;
+            nube.Height = 250;
+            nube.Width = 400;
 
             //creando botones
             Button btnVerMas = new Button();
@@ -878,22 +882,28 @@ namespace _247
 
             //propiedades de los botones
             btnVerMas.Content = "Ver Mas";
+            btnVerMas.Background = new System.Windows.Media.SolidColorBrush(Colors.Black);
             btnCerrar.Content = "Cerrar";
+            btnCerrar.Background = new System.Windows.Media.SolidColorBrush(Colors.Black);
+
+            //Creando e texto
+            TextBlock texto = new TextBlock();
+            texto.Text = _MyMessage;
+            texto.Foreground = new System.Windows.Media.SolidColorBrush(Colors.Black);
 
             //acomodando en el Canvas
-            Canvas.SetTop(nube, -245);
-            Canvas.SetLeft(nube, -40);
-            Canvas.SetTop(btnVerMas, -200);
-            Canvas.SetLeft(btnVerMas, -45);
+            Canvas.SetTop(nube, DIALOG_TOP);
+            Canvas.SetLeft(nube, DIALOG_LEFT);
+            Canvas.SetTop(btnVerMas, DIALOG_LEFT - 110);
+            Canvas.SetLeft(btnVerMas, DIALOG_LEFT + 3);
+            Canvas.SetTop(btnCerrar, DIALOG_LEFT - 110);
+            Canvas.SetLeft(btnCerrar, DIALOG_LEFT + 159);
             
             //agregando elementos al canvas
-
             dialogBox.Children.Add(nube);
             dialogBox.Children.Add(btnVerMas);
             dialogBox.Children.Add(btnCerrar);
             
-
-
             // Create a MapOverlay and add marker       
             MapOverlay overlay = new MapOverlay();
             overlay.Content = dialogBox;
@@ -901,6 +911,7 @@ namespace _247
             overlay.PositionOrigin = new Point(0.3, 1.0);
             mapLayer.Add(overlay);
 
+            //agregar Mapa
             MyMap.Layers.Add(mapLayer);
         }
 
@@ -1060,6 +1071,9 @@ namespace _247
 
         // Geocode query
         private GeocodeQuery MyGeocodeQuery = null;
+
+        //Message
+        private string _MyMessage = "";
 
         // Route query
         private RouteQuery MyRouteQuery = null;
