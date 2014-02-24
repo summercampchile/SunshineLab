@@ -57,7 +57,6 @@ namespace _247
 			NavigationService.Navigate(new Uri("/Registrado.xaml", UriKind.Relative));
         }
 
-
         /// <summary>
         /// cuando se hace click en el campo, hace desaparecer a marca de agua y cambia el color de texto a negro
         /// </summary>
@@ -220,67 +219,47 @@ namespace _247
         }
 
         /// <summary>
-        /// cuando se hace click en el campo, hace desaparecer a marca de agua y cambia el color de texto a negro
+        /// al hacerse click al password box y borra el texto del textbox que esta atras
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void txtPassword_GotFocus(object sender, RoutedEventArgs e)
+        private void passwordBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (txtPassword.Text == "Password")
-            {
-                txtPassword.Text = "";
-                SolidColorBrush brush1 = new SolidColorBrush();
-                brush1.Color = Colors.Black;
-                txtPassword.Foreground = brush1;
-            }
+            if (passwordBox.Password.Length == 0)
+                txtPassword.Text = string.Empty;
         }
 
         /// <summary>
-        /// Cuando el usuario saca el mouse de campo, se coloca una marca de agua correspondiente a ese lugar
+        /// volver a colocar el nombre del Tag al textbox que esta abajo
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void txtPassword_LostFocus(object sender, RoutedEventArgs e)
+        private void passwordBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (txtPassword.Text == string.Empty)
-            {
-                txtPassword.Text = "Password";
-                SolidColorBrush brush1 = new SolidColorBrush();
-                brush1.Color = Colors.Gray;
-                txtPassword.Foreground = brush1;
-            }
+            if (passwordBox.Password.Length == 0)
+                txtPassword.Text = txtPassword.Tag.ToString();
         }
 
         /// <summary>
-        /// cuando se hace click en el campo, hace desaparecer a marca de agua y cambia el color de texto a negro
+        /// al hacerse click al password box y borra el texto del textbox que esta atras
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void txtConfirmarPassword_GotFocus(object sender, RoutedEventArgs e)
+        private void passwordBox2_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (txtConfirmarPassword.Text == "Confirmar Password")
-            {
-                txtConfirmarPassword.Text = "";
-                SolidColorBrush brush1 = new SolidColorBrush();
-                brush1.Color = Colors.Black;
-                txtConfirmarPassword.Foreground = brush1;
-            }
+            if (passwordBox2.Password.Length == 0)
+                txtConfirmarPassword.Text = string.Empty;
         }
 
         /// <summary>
-        /// Cuando el usuario saca el mouse de campo, se coloca una marca de agua correspondiente a ese lugar
+        /// volver a colocar el nombre del Tag al textbox que esta abajo
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void txtConfirmarPassword_LostFocus(object sender, RoutedEventArgs e)
+        private void passwordBox2_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (txtConfirmarPassword.Text == string.Empty)
-            {
-                txtConfirmarPassword.Text = "Confirmar Password";
-                SolidColorBrush brush1 = new SolidColorBrush();
-                brush1.Color = Colors.Gray;
-                txtConfirmarPassword.Foreground = brush1;
-            }
+            if (passwordBox2.Password.Length == 0)
+                txtConfirmarPassword.Text = txtConfirmarPassword.Tag.ToString();
         }
     }
 }

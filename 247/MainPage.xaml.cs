@@ -53,14 +53,11 @@ namespace _247
         private void Image_Tap_2(object sender, System.Windows.Input.GestureEventArgs e)
         {
             cambiarPagina(Globales.VETERINARIO);
-            
-			
         }
 
         private void Image_Tap_3(object sender, System.Windows.Input.GestureEventArgs e)
         {
             cambiarPagina(Globales.SUPERMERCADO);
-            
         }
 
         private void Image_Tap_4(object sender, System.Windows.Input.GestureEventArgs e)
@@ -72,25 +69,21 @@ namespace _247
         private void Image_Tap_5(object sender, System.Windows.Input.GestureEventArgs e)
         {
             cambiarPagina(Globales.SERVICIOS);
-            
         }
 
         private void Image_Tap_6(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            cambiarPagina(Globales.RESTAURANT);
-           
+            cambiarPagina(Globales.RESTAURANT);  
         }
 
         private void Image_Tap_7(object sender, System.Windows.Input.GestureEventArgs e)
         {
             cambiarPagina(Globales.BOTILLERIA);
-            
         }
 
         private void Image_Tap_8(object sender, System.Windows.Input.GestureEventArgs e)
         {
             cambiarPagina(Globales.ENTRETENCION);
-            
         }
 
         private void Image_Tap_9(object sender, System.Windows.Input.GestureEventArgs e)
@@ -98,21 +91,5 @@ namespace _247
         	// TODO: Add event handler implementation here.
 			NavigationService.Navigate(new Uri("/Registar.xaml", UriKind.Relative));
         }
-
-        // Sample code for building a localized ApplicationBar
-        //private void BuildLocalizedApplicationBar()
-        //{
-        //    // Set the page's ApplicationBar to a new instance of ApplicationBar.
-        //    ApplicationBar = new ApplicationBar();
-
-        //    // Create a new button and set the text value to the localized string from AppResources.
-        //    ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
-        //    appBarButton.Text = AppResources.AppBarButtonText;
-        //    ApplicationBar.Buttons.Add(appBarButton);
-
-        //    // Create a new menu item with the localized string from AppResources.
-        //    ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-        //    ApplicationBar.MenuItems.Add(appBarMenuItem);
-        //}
     }
 }
