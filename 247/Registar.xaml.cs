@@ -11,6 +11,7 @@ using Microsoft.Phone.Tasks;
 using System.Windows.Media.Imaging;
 using System.IO;
 using System.Windows.Media;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace _247
 {
@@ -18,47 +19,28 @@ namespace _247
     {
 		// Using a stream reference to upload the image to blob storage.
         Stream imageStream = null;
+
+        // MobileServiceCollectionView implements ICollectionView (useful for databinding to lists) and 
+        // is integrated with your Mobile Service to make it easy to bind your data to the ListView
+        private MobileServiceCollection<Users, Users> usuario;
+
+        private IMobileServiceTable<Users> tablaUsuarios = App.MobileService.GetTable<Users>();
 		
         public Registar()
         {
-            InitializeComponent();
-        }
-
-        private void Image_Tap(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/Informacion.xaml", UriKind.Relative));
-        }
-
-        private void Image_Tap_1(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            PhotoChooserTask photo = new PhotoChooserTask();
-            photo.ShowCamera = true;
-
-            photo.Show();
-
-            photo.Completed += photo_Completed;
-        }
-
-        private void photo_Completed(object sender, PhotoResult e)
-        {
-            if (e != null && e.ChosenPhoto != null)
+            try
             {
-                BitmapImage image = new BitmapImage();
-                image.SetSource(e.ChosenPhoto);
-                ImgPerfil.Source = image;
-
-                imageStream = e.ChosenPhoto;
+                InitializeComponent();
+            }
+            catch (IOException e)
+            {
+                MessageBox.Show( "a" +  e);
             }
         }
 
-        private void Image_Tap_2(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-        	// TODO: Add event handler implementation here.
-			NavigationService.Navigate(new Uri("/Registrado.xaml", UriKind.Relative));
-        }
-
         /// <summary>
-        /// cuando se hace click en el campo, hace desaparecer a marca de agua y cambia el color de texto a negro
+        /// cuando se hace click en el campo, hace desaparecer a
+        /// marca de agua y cambia el color de texto a negro
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -74,7 +56,8 @@ namespace _247
         }
 
         /// <summary>
-        /// Cuando el usuario saca el mouse de campo, se coloca una marca de agua correspondiente a ese lugar
+        /// Cuando el usuario saca el mouse de campo, se coloca una marca de
+        /// agua correspondiente a ese lugar
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -87,11 +70,11 @@ namespace _247
                 brush1.Color = Colors.Gray;
                 txtNombre.Foreground = brush1;
             }
-
         }
 
         /// <summary>
-        /// cuando se hace click en el campo, hace desaparecer a marca de agua y cambia el color de texto a negro
+        /// cuando se hace click en el campo, hace desaparecer a marca de agua 
+        /// y cambia el color de texto a negro
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -107,7 +90,8 @@ namespace _247
         }
 
         /// <summary>
-        /// Cuando el usuario saca el mouse de campo, se coloca una marca de agua correspondiente a ese lugar
+        /// Cuando el usuario saca el mouse de campo, se coloca una 
+        /// marca de agua correspondiente a ese lugar
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -123,7 +107,8 @@ namespace _247
         }
 
         /// <summary>
-        /// cuando se hace click en el campo, hace desaparecer a marca de agua y cambia el color de texto a negro
+        /// cuando se hace click en el campo, hace desaparecer a 
+        /// marca de agua y cambia el color de texto a negro
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -139,7 +124,8 @@ namespace _247
         }
 
         /// <summary>
-        /// Cuando el usuario saca el mouse de campo, se coloca una marca de agua correspondiente a ese lugar
+        /// Cuando el usuario saca el mouse de campo, se coloca una marca 
+        /// de agua correspondiente a ese lugar
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -155,7 +141,8 @@ namespace _247
         }
 
         /// <summary>
-        /// Cuando el usuario saca el mouse de campo, se coloca una marca de agua correspondiente a ese lugar
+        /// Cuando el usuario saca el mouse de campo, se coloca una marca de agua 
+        /// correspondiente a ese lugar
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -171,7 +158,8 @@ namespace _247
         }
 
         /// <summary>
-        /// cuando se hace click en el campo, hace desaparecer a marca de agua y cambia el color de texto a negro
+        /// cuando se hace click en el campo, hace desaparecer a marca de agua y 
+        /// cambia el color de texto a negro
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -260,6 +248,97 @@ namespace _247
         {
             if (passwordBox2.Password.Length == 0)
                 txtConfirmarPassword.Text = txtConfirmarPassword.Tag.ToString();
+        }
+
+        /// <summary>
+        /// Sube los datos del usuario a Azure
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRegistrar_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            //extraer los datos del formulario
+            var usuario = new Users{
+                nombre = txtNombre.Text,
+                apellido = txtApellido.Text,
+                ciudad = txtCiudad.Text,
+                region = txtRegion.Text,
+                mail = txtMail.Text,
+                password = passwordBox.Password
+            };
+            //enviar a la base de datos si es qque se puede
+            if (ConfirmPassword())
+            {
+                InsertUser(usuario);
+                //Manda de vuelta a donde pertenece
+                NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            }
+            else
+            {
+                MessageBox.Show("El campo de contraseña no coincide con su pass");
+                passwordBox.Password = "";
+                passwordBox2.Password = "";
+                txtPassword.Text = txtPassword.Tag.ToString();
+                txtConfirmarPassword.Text = txtConfirmarPassword.Tag.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Inserta un usuario en la base de datos
+        /// </summary>
+        /// <param name="usuario">el usuario a insertar</param>
+        private async void InsertUser(Users usuario) 
+        {
+            try
+            {
+                await tablaUsuarios.InsertAsync(usuario);
+                string ho = usuario.Id;
+                MessageBox.Show(ho);
+                MessageBox.Show("Registrado");
+            }
+            catch (MobileServiceInvalidOperationException e) 
+            {
+                MessageBox.Show(e.Message, "No se pude conectar, no se registro", MessageBoxButton.OK);
+            }
+        }
+
+        /// <summary>
+        /// valida que a password sea igual que el confirm pass
+        /// </summary>
+        /// <returns></returns>
+        private bool ConfirmPassword() 
+        {
+            return (passwordBox.Password.Equals(passwordBox2.Password) & (passwordBox.Password.Length > 0));
+        }
+
+        /// <summary>
+        /// colocar foto para los datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSubirFoto_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            PhotoChooserTask photo = new PhotoChooserTask();
+            photo.ShowCamera = true;
+            photo.Show();
+            photo.Completed += photo_Completed;
+        }
+
+        /// <summary>
+        /// Coocar foto 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void photo_Completed(object sender, PhotoResult e)
+        {
+            if (e != null && e.ChosenPhoto != null)
+            {
+                BitmapImage image = new BitmapImage();
+                image.SetSource(e.ChosenPhoto);
+                ImgPerfil.Source = image;
+
+                imageStream = e.ChosenPhoto;
+            }
         }
     }
 }

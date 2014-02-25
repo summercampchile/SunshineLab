@@ -137,6 +137,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Usuario.cs" />
     <Compile Include="ViewModel\Constants.cs" />
   </ItemGroup>
   <ItemGroup>

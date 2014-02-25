@@ -271,7 +271,6 @@ C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\uz-Latn-UZ\Microsof
 C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\vi-VN\Microsoft.Phone.Controls.Toolkit.resources.dll
 C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\zh-CN\Microsoft.Phone.Controls.Toolkit.resources.dll
 C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\zh-TW\Microsoft.Phone.Controls.Toolkit.resources.dll
-C:\Users\JeanPaul\Source\Repos\SunshineLab\247\obj\ARM\Debug\247.csprojResolveAssemblyReference.cache
 C:\Users\JeanPaul\Source\Repos\SunshineLab\247\obj\ARM\Debug\App.g.cs
 C:\Users\JeanPaul\Source\Repos\SunshineLab\247\obj\ARM\Debug\AboutPage.g.cs
 C:\Users\JeanPaul\Source\Repos\SunshineLab\247\obj\ARM\Debug\Comentarios.g.cs
@@ -304,3 +303,4 @@ C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\Newtonsoft.Json.xml
 C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\System.Net.Http.xml
 C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\System.Net.Http.Extensions.xml
 C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\System.Net.Http.Primitives.xml
+C:\Users\JeanPaul\Source\Repos\SunshineLab\247\obj\ARM\Debug\247.csprojResolveAssemblyReference.cache
