@@ -86,10 +86,16 @@ namespace _247
             cambiarPagina(Globales.ENTRETENCION);
         }
 
+        private void btnIngreso_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            // TODO: Add event handler implementation here.
+            NavigationService.Navigate(new Uri("/LoginPage.xaml", UriKind.Relative));
+        }
+
         private void Image_Tap_9(object sender, System.Windows.Input.GestureEventArgs e)
         {
-        	// TODO: Add event handler implementation here.
-			NavigationService.Navigate(new Uri("/Registar.xaml", UriKind.Relative));
+            // TODO: Add event handler implementation here.
+            NavigationService.Navigate(new Uri("/Registar.xaml", UriKind.Relative));
         }
     }
 }

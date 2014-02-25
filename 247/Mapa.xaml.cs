@@ -100,7 +100,7 @@ namespace _247
                         if (respuesta == MessageBoxResult.OK)
                             NavigationService.Navigate(new Uri("/Comentarios.xaml", UriKind.Relative));
                         
-                        //abre o cierra a cuadro de dialogo d ea informacion
+                        //abre o cierra a cuadro de dialogo de la informacion
                         if (!_isMessageOpen)
                             _isMessageOpen = true;
                     }

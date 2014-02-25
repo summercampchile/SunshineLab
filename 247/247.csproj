@@ -105,6 +105,9 @@
       <DependentUpon>Informacion.xaml</DependentUpon>
     </Compile>
     <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lugares.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -157,6 +160,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -201,8 +208,10 @@
   <ItemGroup>
     <Content Include="24-7.png" />
     <Content Include="Assets\00_ubicacion_actual.png" />
+    <Content Include="Assets\01_registro.png" />
     <Content Include="Assets\01_urgencias.png" />
     <Content Include="Assets\02_farmacias.png" />
+    <Content Include="Assets\02_ingreso.png" />
     <Content Include="Assets\03_veterinarias.png" />
     <Content Include="Assets\04_mercados.png" />
     <Content Include="Assets\05_hospedajes.png" />

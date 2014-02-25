@@ -51,21 +51,21 @@
                 <ColumnDefinition Width="38*"/>
                 <ColumnDefinition Width="38*"/>
                 <ColumnDefinition Width="38*"/>
-            </Grid.ColumnDefinitions> 
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="154*"/>
                 <RowDefinition Height="155*"/>
                 <RowDefinition Height="150*"/>
                 <RowDefinition Height="148*"/>
-            </Grid.RowDefinitions> 
+            </Grid.RowDefinitions>
             <Image Grid.ColumnSpan="3" Height="243" Margin="13,-137,13,0" VerticalAlignment="Top"/>
-            <Image Grid.ColumnSpan="2" Margin="37,107,17,70" Grid.Row="2" Source="Assets/Enter_1.png" Stretch="Fill" Grid.RowSpan="2" Tap="Image_Tap_9"/>
-              <Button Content="" VerticalAlignment="Top" Grid.ColumnSpan="2"  Margin="131,94,23,0" Grid.Row="2" BorderBrush="{x:Null}" Height="83" Grid.Column="1" Grid.RowSpan="2" Click="Button_Click">
+            <Image Margin="37,107,146,70" Grid.Row="2" Source="/Assets/01_registro.png" Stretch="Fill" Grid.RowSpan="2" Tap="Image_Tap_9" Grid.ColumnSpan="2"/>
+            <Button Content="" VerticalAlignment="Top" Grid.ColumnSpan="2"  Margin="131,94,23,0" Grid.Row="2" BorderBrush="{x:Null}" Height="83" Grid.Column="1" Grid.RowSpan="2" Click="Button_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Assets/Enter_2.png" Stretch="UniformToFill"/>
                 </Button.Background>
-            </Button>			
-			<Image Grid.Column="1" Margin="146,22,37,70" Grid.Row="3" Source="Assets/Enter_3.png" Stretch="Fill" Grid.ColumnSpan="2"/>
+            </Button>
+            <Image Grid.Column="1" Margin="146,22,37,70" Grid.Row="3" Source="Assets/Enter_3.png" Stretch="Fill" Grid.ColumnSpan="2"/>
             <Image Grid.Column="1" Margin="146,130,37,54" Grid.Row="1" Grid.RowSpan="2" Source="Assets/Icon_9.png" Stretch="Fill" Grid.ColumnSpan="2" Tap="Image_Tap_8"/>
             <Image Grid.Column="1" Margin="16,130,15,54" Grid.Row="1" Grid.RowSpan="2" Source="Assets/Icon_8.png" Stretch="Fill" Tap="Image_Tap_7"/>
             <Image Grid.ColumnSpan="2" Margin="37,130,146,54" Grid.Row="1" Grid.RowSpan="2" Source="Assets/Icon_7.png" Stretch="Fill" Tap="Image_Tap_6"/>
@@ -75,6 +75,7 @@
             <Image Grid.Column="1" Margin="146,20,37,13" Source="Assets/Icon_3.png" Stretch="Fill" Grid.ColumnSpan="2" Tap="Image_Tap_2"/>
             <Image Grid.Column="1" Margin="16,20,15,13" Source="Assets/Icon_2.png" Stretch="Fill" Tap="Image_Tap_1"/>
             <Image Grid.ColumnSpan="2" Margin="38,20,145,13" Source="Assets/Icon_1.png" Stretch="Fill" Tap="Image_Tap"/>
+            <Image x:Name="btnIngreso" Margin="16,107,15,70" Grid.Row="2" Source="/Assets/02_ingreso.png" Stretch="Fill" Grid.RowSpan="2" Tap="btnIngreso_Tap" Grid.Column="1"/>
 
         </Grid>
         <Image Margin="350,24,50,81" Source="Assets/Logo_2.png" Stretch="Fill"/>
