@@ -101,6 +101,7 @@
       <DependentUpon>Comentarios.xaml</DependentUpon>
     </Compile>
     <Compile Include="Globales.cs" />
+    <Compile Include="Horario.cs" />
     <Compile Include="Informacion.xaml.cs">
       <DependentUpon>Informacion.xaml</DependentUpon>
     </Compile>

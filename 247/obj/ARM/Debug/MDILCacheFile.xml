@@ -1,5 +1,5 @@
-﻿<xapCache source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\_247_Debug_ARM.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="26/02/2014 6:49:22">
-  <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\obj\ARM\Debug\247.dll" archivePath="247.dll" lastWriteTime="26/02/2014 6:49:16" />
+﻿<xapCache source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\_247_Debug_ARM.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="26/02/2014 11:46:32">
+  <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\obj\ARM\Debug\247.dll" archivePath="247.dll" lastWriteTime="26/02/2014 11:46:27" />
   <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Assets\00_ubicacion_actual.png" archivePath="Assets\00_ubicacion_actual.png" lastWriteTime="24/02/2014 15:19:54" />
   <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Assets\01_registro.png" archivePath="Assets\01_registro.png" lastWriteTime="25/02/2014 12:37:32" />
   <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Assets\01_urgencias.png" archivePath="Assets\01_urgencias.png" lastWriteTime="24/02/2014 14:53:37" />
@@ -64,7 +64,7 @@
   <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Toolkit.Content\ApplicationBar.Check.png" archivePath="Toolkit.Content\ApplicationBar.Check.png" lastWriteTime="20/02/2014 6:13:27" />
   <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Toolkit.Content\ApplicationBar.Delete.png" archivePath="Toolkit.Content\ApplicationBar.Delete.png" lastWriteTime="20/02/2014 6:13:27" />
   <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Toolkit.Content\ApplicationBar.Select.png" archivePath="Toolkit.Content\ApplicationBar.Select.png" lastWriteTime="20/02/2014 6:13:27" />
-  <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="25/02/2014 13:01:50" />
+  <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="26/02/2014 10:57:28" />
   <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\packages\Facebook.Client.0.8.5-alpha\lib\wp8\Facebook.Client.dll" archivePath="Facebook.Client.dll" lastWriteTime="20/02/2014 6:51:28" />
   <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\packages\Facebook.6.4.2\lib\wp8\Facebook.dll" archivePath="Facebook.dll" lastWriteTime="20/02/2014 6:51:28" />
   <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll" archivePath="Microsoft.Phone.Controls.Toolkit.dll" lastWriteTime="20/02/2014 6:51:30" />
@@ -99,5 +99,5 @@
   <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\packages\NokiaImagingSDK.1.0.272.0\lib\wp8\ARM\Nokia.InteropServices.WindowsRuntime.dll" archivePath="Nokia.InteropServices.WindowsRuntime.dll" lastWriteTime="20/02/2014 6:51:29" />
   <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\packages\NokiaImagingSDK.1.0.272.0\lib\wp8\ARM\Nokia.InteropServices.WindowsRuntime.xml" archivePath="Nokia.InteropServices.WindowsRuntime.xml" lastWriteTime="20/02/2014 6:51:29" />
   <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\24-7.png" archivePath="24-7.png" lastWriteTime="20/02/2014 6:13:22" />
-  <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\Properties\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="25/02/2014 13:01:52" />
+  <file source="C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\Properties\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="26/02/2014 10:57:29" />
 </xapCache>

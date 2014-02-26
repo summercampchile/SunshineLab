@@ -73,6 +73,9 @@ namespace _247
             HideProgressIndicator();
         }
 
+
+       
+
         /// <summary>
         ///por un tema de optimización, solo baja la informacion completa del punto al cual se le hace click.
         ///si bien causa una pequeña espera al hacer click en e punto, evita una espera mayor (y gasto de servidor)

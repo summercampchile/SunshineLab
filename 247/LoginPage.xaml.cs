@@ -125,7 +125,10 @@ namespace _247
         private void btnRegistrar_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             // TODO: Add event handler implementation here.
-            NavigationService.Navigate(new Uri("/Registar.xaml", UriKind.Relative));
+            //NavigationService.Navigate(new Uri("/Registar.xaml", UriKind.Relative));
+            Horario a = new Horario("247");
+            MessageBox.Show("" + a.estaAbierto());
         }
+
     }
 }
