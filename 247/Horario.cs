@@ -32,7 +32,7 @@ namespace _247
         }
 
         /// <summary>
-        /// devueve el dia obtenido por el metodo day of week
+        /// devuelve el dia obtenido por el metodo day of week
         /// </summary>
         /// <returns></returns>
         private int numeroDia() 
@@ -60,7 +60,7 @@ namespace _247
         /// Retorna el string coorrespondiente al horario de la tienda el dia de hoy
         /// </summary>
         /// <param name="entrada">String con todo el horario de la tienda</param>
-        /// <param name="especificacion">escifica que dato necesita, puede ser apertura o cierre</param>
+        /// <param name="especificacion">especifica que dato necesita, puede ser apertura o cierre</param>
         /// <returns></returns>
         private string horarioHoyTienda(int especificacion)
         {
@@ -95,7 +95,7 @@ namespace _247
         /// <summary>
         /// cambia el formato de la hora dado por DateTime a a formato usado por la app
         /// </summary>
-        /// <returns>hora actual en string. ejm: "1905"</returns>
+        /// <returns>   </returns>
         private string convertirDiaHoy() 
         {
             string hora = now.Hour.ToString();
