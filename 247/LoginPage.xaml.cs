@@ -98,18 +98,23 @@ namespace _247
 
                 //MessageBox.Show("debug de categoria: " + Globales.categoria);
                 usuario = await tablaUsuarios
-                    .Where(tablaTemporal => tablaTemporal.password == (PasswordBoxLogin.Password))
+                    .Where(tablaTemporal => ((tablaTemporal.password == PasswordBoxLogin.Password) & (tablaTemporal.nombre == tbxUserNameLogin.Text)))
                     .ToCollectionAsync();
 
-                MessageBox.Show("despues");
-
-                MessageBox.Show("puntos cargados desde azure po loco, ejempo: " 
-                    + usuario[0].nombre, AppResources.ApplicationTitle, MessageBoxButton.OK);
+               //verificar si ingreso bien o no la Pass
+                if (usuario.Count != 0)
+                {
+                    MessageBox.Show("Ingreso exitoso");
+                    Globales._login = true;
+                }
+                else
+                    MessageBox.Show("La contraseña o usuario son incorrectas");        
             }
             catch (MobileServiceInvalidOperationException e)
             {
                 MessageBox.Show(e.Message, "No se pudo conectar", MessageBoxButton.OK);
             }
+            
         }
 
         /// <summary>

@@ -13,5 +13,6 @@ namespace _247
                 VETERINARIO = 2, SUPERMERCADO = 3, HOSPEDAJE = 4,
                 SERVICIOS = 5, RESTAURANT = 6, BOTILLERIA = 7,
                 ENTRETENCION = 8;
+        public static bool _login = false;
     }
 }
