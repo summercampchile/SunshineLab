@@ -41,5 +41,8 @@ namespace _247
 
         [JsonProperty(PropertyName = "metodoPago")]
         public int MetodoPago { get; set; }
+
+        [JsonProperty(PropertyName = "codhorario")]
+        public string CodHorario { get; set; }
     }
 }

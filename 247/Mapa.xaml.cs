@@ -60,21 +60,26 @@ namespace _247
             }
 
             //se hace un if para evitar que trate de insertar lugares nulos a a lista
-            if (lugares != null)
+            if (lugares.Count > 0)
             {
+
                 foreach (Lugares lugar in lugares)
                 {
-                    var punto = new GeoCoordinate(lugar.Latitud, lugar.Longitud);
-                    MyCoordinates.Add(punto);
+                    Horario horario = new Horario(lugar.CodHorario);
+                    if (horario.estaAbierto())
+                    {
+                        var punto = new GeoCoordinate(lugar.Latitud, lugar.Longitud);
+                        MyCoordinates.Add(punto);
+                    }
                 }
+            }
+            else {
+                MessageBox.Show("Lo sentimos, no hay nada abierto de esta categoria a esta hora");
             }
             //despues de agrgar todos los puntos a la lista sincronicamente, se encarga de dibujarlos
             DrawMapMarkers();
             HideProgressIndicator();
         }
-
-
-       
 
         /// <summary>
         ///por un tema de optimización, solo baja la informacion completa del punto al cual se le hace click.
@@ -681,18 +686,14 @@ namespace _247
         {
             Polygon p = (Polygon)sender;
             GeoCoordinate geoCoordinate = (GeoCoordinate)p.Tag;
-            //if (MyReverseGeocodeQuery == null || !MyReverseGeocodeQuery.IsBusy)
-            //{
-                //MyReverseGeocodeQuery = new ReverseGeocodeQuery();
-                //MyReverseGeocodeQuery.GeoCoordinate = new GeoCoordinate(geoCoordinate.Latitude, geoCoordinate.Longitude);
-                //MyReverseGeocodeQuery.QueryCompleted += ReverseGeocodeQuery_QueryCompleted;
-                //MyReverseGeocodeQuery.QueryAsync();
-
-                //toma a ruta desde el punto actual hasta el seleccionado ademas de mostrar su info desde azure
-                showCategorizedPoints(geoCoordinate.Latitude, geoCoordinate.Longitude);
-            //}
+            showCategorizedPoints(geoCoordinate.Latitude, geoCoordinate.Longitude);
         }
 
+        /// <summary>
+        /// se activa al hacer click sobre un pin personalizado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Image_Click(object sender, EventArgs e)
         {
             Image i = (Image)sender;
@@ -809,9 +810,9 @@ namespace _247
             if (Globales.categoria == Globales.URGENCIA)
                 image.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/01_urgencias.png", UriKind.Relative));
             if (Globales.categoria == Globales.VETERINARIO)
-                image.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/03_veterinarias", UriKind.Relative));
+                image.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/03_veterinarias.png", UriKind.Relative));
             if (Globales.categoria == Globales.SUPERMERCADO)
-                image.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/04_mercados", UriKind.Relative));
+                image.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/04_mercados.png", UriKind.Relative));
             if (Globales.categoria == Globales.HOSPEDAJE)
                 image.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/05_hospedajes.png", UriKind.Relative));
             if (Globales.categoria == Globales.SERVICIOS)
