@@ -27,12 +27,12 @@
         </StackPanel>
 
         <!--ContentPanel. Colocar aquí el contenido adicional-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="10,0,14,0">
             <TextBox Name="tbxUserNameLogin" HorizontalAlignment="Left" Height="72" Margin="0,36,0,0" TextWrapping="Wrap" Text="Nombre Usuario" VerticalAlignment="Top" Width="456" Foreground="Gray" GotFocus="tbxUserNameLogin_GotFocus" LostFocus="tbxUserNameLogin_LostFocus"/>
             <TextBox Name="tbxPasswordLogin" HorizontalAlignment="Left" Height="72" Margin="0,132,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="456" Foreground="Gray"/>
             <PasswordBox Name="PasswordBoxLogin" HorizontalAlignment="Left" Margin="0,132,0,0" VerticalAlignment="Top" Width="456" Background="{x:Null}" BorderThickness="0" GotFocus="PasswordBoxLogin_GotFocus" LostFocus="PasswordBoxLogin_LostFocus"/>
             <Image x:Name="btnLogin" HorizontalAlignment="Left" Height="100" Margin="327,222,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/02_ingreso.png" Tap="btnLogin_Tap"/>
-            <Image x:Name="btnRegistrar" HorizontalAlignment="Left" Height="100" Margin="223,346,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/01_registro.png" Tap="btnRegistrar_Tap"/>
+            <Image x:Name="btnRegistrar" HorizontalAlignment="Left" Height="100" Margin="175,222,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/01_registro.png" Tap="btnRegistrar_Tap"/>
         </Grid>
     </Grid>
 

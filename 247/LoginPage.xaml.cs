@@ -9,17 +9,20 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.Windows.Media;
 using System.IO;
+using Microsoft.WindowsAzure.MobileServices;
+using _247.Resources;
 
 namespace _247
 {
     public partial class LoginPage : PhoneApplicationPage
     {
+        
+        private MobileServiceCollection<Users, Users> usuario;
+        private IMobileServiceTable<Users> tablaUsuarios = App.MobileService.GetTable<Users>();
+
         public LoginPage()
         {
-
-                InitializeComponent();
-            
-        
+            InitializeComponent();
         }
 
         /// <summary>
@@ -80,9 +83,40 @@ namespace _247
 
         private void btnLogin_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
+            cargarUsuario();
+            // TODO: Add event handler implementation here.
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
 
         }
 
+        private async void cargarUsuario() 
+        {
+            try
+            {
+                //debug
+                MessageBox.Show("Password escrita: " + PasswordBoxLogin.Password);
+
+                //MessageBox.Show("debug de categoria: " + Globales.categoria);
+                usuario = await tablaUsuarios
+                    .Where(tablaTemporal => tablaTemporal.password == (PasswordBoxLogin.Password))
+                    .ToCollectionAsync();
+
+                MessageBox.Show("despues");
+
+                MessageBox.Show("puntos cargados desde azure po loco, ejempo: " 
+                    + usuario[0].nombre, AppResources.ApplicationTitle, MessageBoxButton.OK);
+            }
+            catch (MobileServiceInvalidOperationException e)
+            {
+                MessageBox.Show(e.Message, "No se pudo conectar", MessageBoxButton.OK);
+            }
+        }
+
+        /// <summary>
+        /// si hace click en registrar, manda a la ventana de registro
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRegistrar_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             // TODO: Add event handler implementation here.

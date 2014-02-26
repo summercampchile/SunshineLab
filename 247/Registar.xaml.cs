@@ -22,8 +22,6 @@ namespace _247
 
         // MobileServiceCollectionView implements ICollectionView (useful for databinding to lists) and 
         // is integrated with your Mobile Service to make it easy to bind your data to the ListView
-        private MobileServiceCollection<Users, Users> usuario;
-
         private IMobileServiceTable<Users> tablaUsuarios = App.MobileService.GetTable<Users>();
 		
         public Registar()
