@@ -219,10 +219,10 @@ namespace _247
 #if DEBUG
 #warning Please obtain a valid application ID and authentication token.
 #else
-#error You must specify a valid application ID and authentication token.
+//#error You must specify a valid application ID and authentication token.
 #endif
-            Microsoft.Phone.Maps.MapsSettings.ApplicationContext.ApplicationId = "__ApplicationID__";
-            Microsoft.Phone.Maps.MapsSettings.ApplicationContext.AuthenticationToken = "__AuthenticationToken__";
+            Microsoft.Phone.Maps.MapsSettings.ApplicationContext.ApplicationId = "503fda17-feb3-4906-b338-778fa7b2f8d8";;
+            Microsoft.Phone.Maps.MapsSettings.ApplicationContext.AuthenticationToken = "ARdzCPNj5-QYSMGyRWfCGQ";
         }
 
         /// <summary>
