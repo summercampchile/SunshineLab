@@ -24,7 +24,7 @@ namespace _247
         /// </summary>
         /// <returns>True: abierto. False: cerrado</returns>
         public bool estaAbierto() 
-        {           
+        {
             return ((!diaCerrado() 
                 & (Convert.ToInt32(convertirDiaHoy()) < Convert.ToInt32(horarioHoyTienda(CIERRE)))
                     & (Convert.ToInt32(convertirDiaHoy()) > Convert.ToInt32(horarioHoyTienda(APERTURA))))
@@ -73,7 +73,7 @@ namespace _247
             
             //en caso que sea solo la hora de apertura, solo toma 
             //los primeros 4 valores del horario
-            if (especificacion == APERTURA)
+            if (especificacion == CIERRE)
                 inicio = (dia - 1) * 4;
             else
                 inicio = ((dia - 1) * 4) + 4;
@@ -110,6 +110,39 @@ namespace _247
         private bool diaCerrado() 
         {
             return (String.Compare(horarioHoyTienda(APERTURA), horarioHoyTienda(CIERRE)) == 0);
+        }
+
+
+        //DEBUG
+        public string horarioHoyTienda(int especificacion, int dia)
+        {
+            //int dia = numeroDia(), 
+            int inicio, fin;
+            string salida = entrada;
+
+            //en caso de los shorcut, sale inmediatamente
+            if (salida.Length < 55)
+                return "0000";
+
+            //en caso que sea solo la hora de apertura, solo toma 
+            //los primeros 4 valores del horario
+            if (especificacion == CIERRE)
+                inicio = (dia - 1) * 4;
+            else
+                inicio = ((dia - 1) * 4) + 4;
+
+            //la cantidad de caracteres simepre es el mismo
+            fin = inicio + 3;
+
+            //cortar a parte derecha
+            if (fin != salida.Length - 1)
+                salida = salida.Remove(fin, salida.Length - 1 - fin);
+
+            //cortar la parte izquierda
+            if (inicio != 0)
+                salida = salida.Remove(0, inicio);
+
+            return salida;
         }
     }
 }
