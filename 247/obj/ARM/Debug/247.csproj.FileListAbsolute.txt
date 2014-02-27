@@ -305,3 +305,4 @@ C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\System.Net.Http.Ext
 C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\System.Net.Http.Primitives.xml
 C:\Users\JeanPaul\Source\Repos\SunshineLab\247\obj\ARM\Debug\LoginPage.g.cs
 C:\Users\JeanPaul\Source\Repos\SunshineLab\247\obj\ARM\Debug\247.csprojResolveAssemblyReference.cache
+C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\Microsoft.WindowsAzure.Messaging.dll

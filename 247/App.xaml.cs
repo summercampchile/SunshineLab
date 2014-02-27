@@ -29,6 +29,7 @@ namespace _247
 
 
 
+
         public static MobileServiceClient MobileService = new MobileServiceClient(
            "https://aplicacion-24-7.azure-mobile.net/",
            "TGrvnHeOmXcNsHzqwpYImZfEcJDBDp59"
@@ -70,7 +71,6 @@ namespace _247
                 // and consume battery power when the user is not using the phone.
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
-
         }
 
         // Code to execute when the application is launching (eg, from Start)

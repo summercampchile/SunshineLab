@@ -136,6 +136,7 @@
     <Compile Include="Registrado.xaml.cs">
       <DependentUpon>Registrado.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Registrations.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

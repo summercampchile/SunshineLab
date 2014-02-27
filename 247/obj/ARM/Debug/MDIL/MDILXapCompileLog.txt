@@ -20,6 +20,8 @@ Processing file: C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\MD
 File C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\MDIL\Microsoft.Threading.Tasks.Extensions.dll is not in the compile filter. Skipping.
 Processing file: C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\MDIL\Microsoft.Threading.Tasks.Extensions.Phone.dll
 File C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\MDIL\Microsoft.Threading.Tasks.Extensions.Phone.dll is not in the compile filter. Skipping.
+Processing file: C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\MDIL\Microsoft.WindowsAzure.Messaging.dll
+File C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\MDIL\Microsoft.WindowsAzure.Messaging.dll is not in the compile filter. Skipping.
 Processing file: C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\MDIL\Microsoft.WindowsAzure.Mobile.dll
 File C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\MDIL\Microsoft.WindowsAzure.Mobile.dll is not in the compile filter. Skipping.
 Processing file: C:\Users\JeanPaul\Source\Repos\SunshineLab\247\Bin\ARM\Debug\MDIL\Microsoft.WindowsAzure.Mobile.Ext.dll

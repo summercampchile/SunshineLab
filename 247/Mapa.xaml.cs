@@ -53,29 +53,40 @@ namespace _247
                     .ToCollectionAsync();
 
                 //MessageBox.Show("puntos cargados desde azure po loco, ejempo: " + lugares[0].Nombre + "\nLatitud: " + lugares[0].Latitud, AppResources.ApplicationTitle, MessageBoxButton.OK);
+                //MessageBox.Show("comparando el recibido: " + lugares[0].Categoria +
+                       //" con el global: " + Globales.categoria + " con el esperado: " + Globales.RESTAURANT); 
             }
             catch (MobileServiceInvalidOperationException e)
             {
                 MessageBox.Show(e.Message, "Error al cargar los lugares", MessageBoxButton.OK);
             }
 
+            //contador de lugares
+            int cantLugaresCargados = 0;
+
             //se hace un if para evitar que trate de insertar lugares nulos a a lista
             if (lugares.Count > 0)
             {
-
                 foreach (Lugares lugar in lugares)
                 {
                     Horario horario = new Horario(lugar.CodHorario);
+                    //MessageBox.Show("el horario: " + lugar.CodHorario + " entonces esta abierto?: " + horario.estaAbierto());
                     if (horario.estaAbierto())
                     {
                         var punto = new GeoCoordinate(lugar.Latitud, lugar.Longitud);
                         MyCoordinates.Add(punto);
+                        cantLugaresCargados++;
                     }
                 }
             }
             else {
-                MessageBox.Show("Lo sentimos, no hay nada abierto de esta categoria a esta hora");
+                MessageBox.Show("No lugares cargados para esta categoria");
             }
+
+            //si no hay lugares disponibles muestra el mensaje
+            if(cantLugaresCargados == 0)
+                MessageBox.Show("Lo sentimos, no hay nada abierto de esta categoria a esta hora");
+
             //despues de agrgar todos los puntos a la lista sincronicamente, se encarga de dibujarlos
             DrawMapMarkers();
             HideProgressIndicator();
@@ -839,7 +850,9 @@ namespace _247
             Image image = new Image();
             //ruta de la imagen (depende si es e punto georreferenciado o no
             if (color != Colors.Red)
+            {
                 image = IconoImagen();
+            }
             else
                 image.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/00_ubicacion_actual.png", UriKind.Relative));
             
