@@ -27,9 +27,6 @@ namespace _247
         public static bool isAuthenticated = false;
         public static FacebookSessionClient FacebookSessionClient = new FacebookSessionClient(Constants.FacebookAppId);
 
-
-
-
         public static MobileServiceClient MobileService = new MobileServiceClient(
            "https://aplicacion-24-7.azure-mobile.net/",
            "TGrvnHeOmXcNsHzqwpYImZfEcJDBDp59"

@@ -109,6 +109,7 @@ namespace _247
                 {
                     MessageBox.Show("Ingreso exitoso");
                     Globales._login = true;
+                    Globales.nombre = usuario[0].nombre;
                 }
                 else
                     MessageBox.Show("La contraseña o usuario son incorrectas");        
@@ -130,6 +131,5 @@ namespace _247
             // TODO: Add event handler implementation here.
             NavigationService.Navigate(new Uri("/Registar.xaml", UriKind.Relative));
         }
-
     }
 }

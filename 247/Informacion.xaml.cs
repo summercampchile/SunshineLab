@@ -7,11 +7,14 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace _247
 {
     public partial class Informacion : PhoneApplicationPage
     {
+        
+
         public Informacion()
         {
             InitializeComponent();
@@ -48,7 +51,7 @@ namespace _247
             // TODO: Add event handler implementation here.
             NavigationService.Navigate(new Uri("/Mapa.xaml", UriKind.Relative));
             //manda a las coordenadas del dr ahorro
-            
+
 
         }
     }

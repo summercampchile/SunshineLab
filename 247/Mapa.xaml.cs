@@ -52,6 +52,37 @@ namespace _247
                     .Where(tablaTemporal => tablaTemporal.Categoria == Globales.categoria)
                     .ToCollectionAsync();
 
+
+                //contador de lugares
+                int cantLugaresCargados = 0;
+
+                //se hace un if para evitar que trate de insertar lugares nulos a a lista
+                if (lugares.Count > 0)
+                {
+                    foreach (Lugares lugar in lugares)
+                    {
+                        Horario horario = new Horario(lugar.CodHorario);
+                        //MessageBox.Show("el horario: " + lugar.CodHorario + " entonces esta abierto?: " + horario.estaAbierto());
+                        if (horario.estaAbierto())
+                        {
+                            var punto = new GeoCoordinate(lugar.Latitud, lugar.Longitud);
+                            MyCoordinates.Add(punto);
+                            cantLugaresCargados++;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No lugares cargados para esta categoria");
+                }
+
+                //si no hay lugares disponibles muestra el mensaje
+                if (cantLugaresCargados == 0)
+                    MessageBox.Show("Lo sentimos, no hay nada abierto de esta categoria a esta hora");
+
+
+
+
                 //MessageBox.Show("puntos cargados desde azure po loco, ejempo: " + lugares[0].Nombre + "\nLatitud: " + lugares[0].Latitud, AppResources.ApplicationTitle, MessageBoxButton.OK);
                 //MessageBox.Show("comparando el recibido: " + lugares[0].Categoria +
                        //" con el global: " + Globales.categoria + " con el esperado: " + Globales.RESTAURANT); 
@@ -61,32 +92,7 @@ namespace _247
                 MessageBox.Show(e.Message, "Error al cargar los lugares", MessageBoxButton.OK);
             }
 
-            //contador de lugares
-            int cantLugaresCargados = 0;
-
-            //se hace un if para evitar que trate de insertar lugares nulos a a lista
-            if (lugares.Count > 0)
-            {
-                foreach (Lugares lugar in lugares)
-                {
-                    Horario horario = new Horario(lugar.CodHorario);
-                    //MessageBox.Show("el horario: " + lugar.CodHorario + " entonces esta abierto?: " + horario.estaAbierto());
-                    if (horario.estaAbierto())
-                    {
-                        var punto = new GeoCoordinate(lugar.Latitud, lugar.Longitud);
-                        MyCoordinates.Add(punto);
-                        cantLugaresCargados++;
-                    }
-                }
-            }
-            else {
-                MessageBox.Show("No lugares cargados para esta categoria");
-            }
-
-            //si no hay lugares disponibles muestra el mensaje
-            if(cantLugaresCargados == 0)
-                MessageBox.Show("Lo sentimos, no hay nada abierto de esta categoria a esta hora");
-
+            
             //despues de agrgar todos los puntos a la lista sincronicamente, se encarga de dibujarlos
             DrawMapMarkers();
             HideProgressIndicator();
@@ -117,8 +123,12 @@ namespace _247
                         
                         //Si coloca que quiere ver mas, podra comentar
                         if (respuesta == MessageBoxResult.OK)
+                        {
+                            Globales.latitud = MyCoordinate.Latitude;
+                            Globales.longitud = MyCoordinate.Longitude;
+                            Globales.nombreTienda = lugar.Nombre;
                             NavigationService.Navigate(new Uri("/Comentarios.xaml", UriKind.Relative));
-                        
+                        }
                         //abre o cierra a cuadro de dialogo de la informacion
                         if (!_isMessageOpen)
                             _isMessageOpen = true;
@@ -217,7 +227,7 @@ namespace _247
         private void MyMap_Loaded(object sender, RoutedEventArgs e)
         {
 #if DEBUG
-#warning Please obtain a valid application ID and authentication token.
+//#warning Please obtain a valid application ID and authentication token.
 #else
 //#error You must specify a valid application ID and authentication token.
 #endif

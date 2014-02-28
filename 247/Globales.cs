@@ -14,5 +14,9 @@ namespace _247
                 SERVICIOS = 5, RESTAURANT = 6, BOTILLERIA = 7,
                 ENTRETENCION = 8;
         public static bool _login = false;
+        public static string nombre;
+        public static double latitud;
+        public static double longitud;
+        public static string nombreTienda;
     }
 }

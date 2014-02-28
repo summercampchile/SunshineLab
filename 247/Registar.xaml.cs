@@ -294,6 +294,7 @@ namespace _247
                 MessageBox.Show(ho);
                 MessageBox.Show("Registrado");
                 Globales._login = true;
+                Globales.nombre = usuario.nombre;
             }
             catch (MobileServiceInvalidOperationException e) 
             {

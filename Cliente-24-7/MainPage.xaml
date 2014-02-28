@@ -1,0 +1,71 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Cliente_24_7.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot es la cuadrícula raíz donde se coloca todo el contenido de la página-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- NOTA PARA LA TRADUCCIÓN:
+            Para traducir las cadenas mostradas, copia sus valores a las claves con el nombre
+            correspondiente en el archivo de recursos del idioma neutro (AppResources.resx) de la aplicación y
+            reemplaza el valor de texto codificado de forma rígida entre las comillas de los atributos
+            con la cláusula de enlace cuya ruta de acceso apunte a ese nombre de cadena.
+
+            Por ejemplo:
+
+                Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"
+
+            Este enlace apunta al recurso de cadena de la plantilla denominado "ApplicationTitle".
+
+            Al agregar idiomas admitidos en la pestaña Propiedades del proyecto se creará un
+            nuevo archivo resx por idioma que puede contener los valores traducidos de las
+            cadenas de la interfaz de usuario. El enlace de estos ejemplos hará que el valor de los atributos
+            se tome del archivo .resx correspondiente al valor de
+            CurrentUICulture de la aplicación en tiempo de ejecución.
+         -->
+
+        <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="24/7 Cliente" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+            <TextBlock Text="El Cliente" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel. Colocar aquí el contenido adicional-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="14,0,10,0">
+            <TextBlock x:Name="lblNombre" HorizontalAlignment="Left" Margin="10,101,0,0" TextWrapping="Wrap" Text="Nombre Cliente:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="lblDistancia" HorizontalAlignment="Left" Margin="10,186,0,0" TextWrapping="Wrap" Text="Distancia que viene:" VerticalAlignment="Top" Width="194" Height="36"/>
+            <TextBlock x:Name="lblComentario" HorizontalAlignment="Left" Margin="10,290,0,0" TextWrapping="Wrap" Text="Comentario:" VerticalAlignment="Top" Width="194" Height="36"/>
+            <TextBlock x:Name="txtNombre" HorizontalAlignment="Left" Margin="10,128,0,0" TextWrapping="Wrap" Text="Texto" VerticalAlignment="Top" Width="436" Height="53"/>
+            <TextBlock x:Name="txtDistancia" HorizontalAlignment="Left" Margin="10,222,0,0" TextWrapping="Wrap" Text="Texto" VerticalAlignment="Top" Width="436" Height="53"/>
+            <TextBlock x:Name="txtComentario" HorizontalAlignment="Left" Margin="10,326,0,0" TextWrapping="Wrap" Text="Texto" VerticalAlignment="Top" Width="436" Height="165"/>
+            <Button x:Name="goToMap" Content="Button" HorizontalAlignment="Left" Margin="88,496,0,0" VerticalAlignment="Top" Width="290" Click="goToMap_Click"/>
+            <TextBlock x:Name="lblOrigeb" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Viene desde:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="txtOrigen" HorizontalAlignment="Left" Margin="10,37,0,0" TextWrapping="Wrap" Text="Texto" VerticalAlignment="Top" Width="436" Height="53"/>
+
+        </Grid>
+
+        <!--Quitar la marca de comentarios para ver una cuadrícula de alineación que
+            ayuda a comprobar que los controles están alineados en los límites normales.  La imagen tiene un margen superior de -32px para
+            tener en cuenta la bandeja del sistema. Establécelo en 0 (o quite el margen)
+            si la bandeja del sistema está oculta.
+
+            Antes de enviarla, quita este código XAML y la propia imagen.-->
+        <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />-->
+    </Grid>
+
+</phone:PhoneApplicationPage>

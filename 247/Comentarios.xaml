@@ -13,7 +13,7 @@
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
 
-        <!--LayoutRoot is the root grid where all page content is placed-->
+    <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -25,55 +25,11 @@
             <TextBlock Style="{StaticResource PhoneTextNormalStyle}"/>
             <TextBlock Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
-		<Image Margin="350,24,50,81" Source="Assets/Logo_2.png" Stretch="Fill"/>
-		<Image Margin="35,93,34,37" Source="Assets/categoria_informacion_3.png" Stretch="Fill"/>
-		<Image Margin="35,135,290,478" Source="Assets/cuadrado.png" Stretch="Fill" Grid.RowSpan="2"/>
-		<Image Margin="35,141,415,435" Grid.Row="1" Source="Assets/red_info_1.png" Stretch="Fill"/>
-		<Image Margin="75,141,374,435" Grid.Row="1" Source="Assets/red_info_2.png" Stretch="Fill"/>
-		<Image Margin="116,141,333,435" Grid.Row="1" Source="Assets/red_info_3.png" Stretch="Fill"/>
-		<Image Margin="156,141,293,435" Grid.Row="1" Source="Assets/red_info_4.png" Stretch="Fill"/>
-		<Image Margin="221,143,243,2" Source="Assets/estrella_full.png" Stretch="Fill"/>
-		<Image Margin="241,143,223,2" Source="Assets/estrella_full.png" Stretch="Fill"/>
-		<Image Margin="261,143,203,2" Source="Assets/estrella_full.png" Stretch="Fill"/>
-		<Image Margin="281,143,183,2" Source="Assets/estrella_full.png" Stretch="Fill"/>
-		<Image Margin="301,143,163,2" Source="Assets/estrella_full.png" Stretch="Fill"/>
-		<TextBlock HorizontalAlignment="Left" Margin="221,1,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="100" Width="170">
-			<Run Text="Nombre de Local"/>
-			<LineBreak/>
-			<Run Text="Dirección "/>
-			<LineBreak/>
-			<Run Text="Abierto Hasta"/>
-		</TextBlock>
-		<Image Margin="222,95,34,435" Grid.Row="1" Source="Assets/cuadrado.png" Stretch="Fill"/>
-		<Image Margin="282,102,141,486" Grid.Row="1" Source="Assets/pago_1.png" Stretch="Fill"/>
-		<Image Margin="242,131,181,442" Grid.Row="1" Source="Assets/pago_2.png" Stretch="Fill"/>
-		<Image Margin="317,136,46,445" Grid.Row="1" Source="Assets/pago_3.png" Stretch="Fill"/>
-		<Image Margin="35,190,34,413" Grid.Row="1" Source="Assets/linea_color_categoría_03.png" Stretch="Fill"/>
-		<TextBox HorizontalAlignment="Left" Margin="23,209,0,278" Grid.Row="1" TextWrapping="Wrap" Text="Dejar tú comentario u opinión" Width="307"/>
-		<Image Margin="330,257,34,289" Grid.Row="1" Source="Assets/enviar_color_categoria_03.png" Stretch="Fill"/>
-		<TextBlock HorizontalAlignment="Left" Margin="35,334,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Comentarios" VerticalAlignment="Top"/>
-		<Image Margin="35,370,34,233" Grid.Row="1" Source="Assets/linea_color_categoría_03.png" Stretch="Fill"/>
-		<Image Margin="35,388,374,148" Grid.Row="1" Source="Assets/Icon_face.png" Stretch="Fill"/>
-		<Image Margin="380,388,34,188" Grid.Row="1" Source="Assets/responder_color_categoria_03.png" Stretch="Fill"/>
-		<Image Margin="35,540,34,63" Grid.Row="1" Source="Assets/linea_color_categoría_03.png" Stretch="Fill"/>
-		<Image Margin="35,495,430,96" Grid.Row="1" Source="Assets/flecha_gusta.png" Stretch="Fill"/>
-		<Image Margin="80,495,385,96" Grid.Row="1" Source="Assets/flecha_no_gusta.png" Stretch="Fill"/>
-		<TextBlock HorizontalAlignment="Left" Margin="97,489,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" FontSize="20" Width="13">
-			<Run Text="0"/>
-			<LineBreak/>
-			<Run/>
-		</TextBlock>
-		<TextBlock HorizontalAlignment="Left" Margin="55,489,0,0" Grid.Row="1" TextWrapping="Wrap" Text="10" VerticalAlignment="Top"/>
-		<TextBlock HorizontalAlignment="Left" Margin="118,386,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Roberto Díaz" VerticalAlignment="Top" FontSize="24" Foreground="#FFBD6802"/>
-		<TextBlock HorizontalAlignment="Left" Margin="118,413,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF62BEFD" FontSize="16">
-			<Run Text="febrero 7,"/>
-			<Run Text=" "/>
-			<Run Text="2"/>
-			<Run Text="0"/>
-			<Run Text="14 a 11:49"/>
-		</TextBlock>
-		<TextBlock HorizontalAlignment="Left" Margin="118,461,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Excelente Lugar, muy buen Ambiente" VerticalAlignment="Top"/>
-      
+        <Image Margin="350,24,50,81" Source="Assets/Logo_2.png" Stretch="Fill"/>
+        <Image Margin="35,386,34,217" Grid.Row="1" Source="Assets/linea_color_categoría_03.png" Stretch="Fill"/>
+        <TextBox Name="txtComentario" HorizontalAlignment="Left" Margin="35,121,0,301" Grid.Row="1" TextWrapping="Wrap" Text="Escriba un mensaje para la tienda" Width="432" LostFocus="txtComentario_LostFocus" GotFocus="txtComentario_GotFocus"  Foreground="Gray"/>
+        <Image x:Name="btnEnviar" Margin="330,306,34,240" Grid.Row="1" Source="Assets/enviar_color_categoria_03.png" Stretch="Fill" Tap="btnEnviar_Tap"/>
+
     </Grid>
 
 </phone:PhoneApplicationPage>
