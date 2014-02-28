@@ -48,14 +48,15 @@
         <!--ContentPanel. Colocar aquí el contenido adicional-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="14,0,10,0">
             <TextBlock x:Name="lblNombre" HorizontalAlignment="Left" Margin="10,101,0,0" TextWrapping="Wrap" Text="Nombre Cliente:" VerticalAlignment="Top"/>
-            <TextBlock x:Name="lblDistancia" HorizontalAlignment="Left" Margin="10,186,0,0" TextWrapping="Wrap" Text="Distancia que viene:" VerticalAlignment="Top" Width="194" Height="36"/>
+            <TextBlock x:Name="lblDistancia" HorizontalAlignment="Left" Margin="10,186,0,0" TextWrapping="Wrap" Text="Viene de:" VerticalAlignment="Top" Width="194" Height="36"/>
             <TextBlock x:Name="lblComentario" HorizontalAlignment="Left" Margin="10,290,0,0" TextWrapping="Wrap" Text="Comentario:" VerticalAlignment="Top" Width="194" Height="36"/>
             <TextBlock x:Name="txtNombre" HorizontalAlignment="Left" Margin="10,128,0,0" TextWrapping="Wrap" Text="Texto" VerticalAlignment="Top" Width="436" Height="53"/>
-            <TextBlock x:Name="txtDistancia" HorizontalAlignment="Left" Margin="10,222,0,0" TextWrapping="Wrap" Text="Texto" VerticalAlignment="Top" Width="436" Height="53"/>
+            <TextBlock x:Name="txtDistancia" HorizontalAlignment="Left" Margin="10,222,0,0" TextWrapping="Wrap" Text="Av. Providencia 229, Providencia" VerticalAlignment="Top" Width="436" Height="53"/>
             <TextBlock x:Name="txtComentario" HorizontalAlignment="Left" Margin="10,326,0,0" TextWrapping="Wrap" Text="Texto" VerticalAlignment="Top" Width="436" Height="165"/>
-            <Button x:Name="goToMap" Content="Button" HorizontalAlignment="Left" Margin="88,496,0,0" VerticalAlignment="Top" Width="290" Click="goToMap_Click"/>
-            <TextBlock x:Name="lblOrigeb" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Viene desde:" VerticalAlignment="Top"/>
+            <Button x:Name="goToMap" Content="Ver en Mapa" HorizontalAlignment="Left" Margin="235,491,0,0" VerticalAlignment="Top" Width="174" Click="goToMap_Click"/>
+            <TextBlock x:Name="lblOrigeb" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Nombre Tienda:" VerticalAlignment="Top"/>
             <TextBlock x:Name="txtOrigen" HorizontalAlignment="Left" Margin="10,37,0,0" TextWrapping="Wrap" Text="Texto" VerticalAlignment="Top" Width="436" Height="53"/>
+            <Button x:Name="btnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="21,491,0,0" VerticalAlignment="Top" Width="183" Tap="btnActualizar_Tap"/>
 
         </Grid>
 

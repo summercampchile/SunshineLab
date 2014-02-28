@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{14b4b027-ec0f-4aed-b218-76f7514695f6}" Title="_247" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="_247 author" Description="Sample description" Publisher="_247" PublisherID="{2b995cd2-c224-44bb-9adb-9fa40787ccec}">
-    <IconPath IsRelative="true" IsResource="false">24-7.png</IconPath>
+  <App xmlns="" ProductID="{14b4b027-ec0f-4aed-b218-76f7514695f6}" Title="24 Siete" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="_247 author" Description="Encuentra los lugares abiertos a toda hora" Publisher="_247" PublisherID="{2b995cd2-c224-44bb-9adb-9fa40787ccec}">
+    <IconPath IsRelative="true" IsResource="false">marca01.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
       <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
@@ -19,20 +19,23 @@
     <Tokens>
       <PrimaryToken TokenID="_247Token" TaskName="_default">
         <TemplateFlip>
-          <SmallImageURI IsRelative="true" IsResource="false">24-7.png</SmallImageURI>
+          <SmallImageURI IsRelative="true" IsResource="false">marca09.png</SmallImageURI>
           <Count>0</Count>
-          <BackgroundImageURI IsRelative="true" IsResource="false">24-7.png</BackgroundImageURI>
-          <Title>_247</Title>
+          <BackgroundImageURI IsRelative="true" IsResource="false">marca10.png</BackgroundImageURI>
+          <Title>24 Siete</Title>
           <BackContent>
           </BackContent>
-          <BackBackgroundImageURI>
+          <BackBackgroundImageURI IsRelative="true" IsResource="false">
           </BackBackgroundImageURI>
           <BackTitle>
           </BackTitle>
-          <DeviceLockImageURI>
+          <LargeBackgroundImageURI IsRelative="true" IsResource="false">icono_largo.png</LargeBackgroundImageURI>
+          <LargeBackContent />
+          <LargeBackBackgroundImageURI IsRelative="true" IsResource="false">
+          </LargeBackBackgroundImageURI>
+          <DeviceLockImageURI IsRelative="true" IsResource="false">
           </DeviceLockImageURI>
-          <HasLarge>
-          </HasLarge>
+          <HasLarge>True</HasLarge>
         </TemplateFlip>
       </PrimaryToken>
     </Tokens>

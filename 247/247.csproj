@@ -233,6 +233,7 @@
     </Content>
     <Content Include="Assets\farmacia_1.png" />
     <Content Include="Assets\Logo_2.png" />
+    <Content Include="Assets\marca.png" />
     <Content Include="Assets\nube_blanca.png" />
     <Content Include="Assets\nube_boton.png" />
     <Content Include="Assets\Tiles\24-7.png" />
@@ -281,6 +282,13 @@
     <Content Include="Assets\Tiles\logo_salcobrand.png" />
     <Content Include="Assets\Tiles\simi.jpg" />
     <Content Include="Assets\Tiles\Sin título-1.png" />
+    <Content Include="icono_largo.png" />
+    <Content Include="marca.png" />
+    <Content Include="marca01.png" />
+    <Content Include="marca09.png" />
+    <Content Include="marca10.png" />
+    <Content Include="marca_2.png" />
+    <Content Include="marca_3.png" />
     <Content Include="README_FIRST.txt" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />

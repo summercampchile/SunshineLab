@@ -93,6 +93,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Globales.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -130,10 +131,34 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AlignmentGrid.png" />
+    <Content Include="appbar.download.png" />
+    <Content Include="appbar.feature.search.rest.png" />
+    <Content Include="appbar.feature.settings.rest.png" />
+    <Content Include="appbar.locate.me.png" />
+    <Content Include="appbar.show.route.png" />
+    <Content Include="ApplicationIcon.png" />
+    <Content Include="Assets\00_ubicacion_actual.png" />
+    <Content Include="Assets\01_urgencias.png" />
+    <Content Include="Assets\02_farmacias.png" />
+    <Content Include="Assets\03_veterinarias.png" />
+    <Content Include="Assets\04_mercados.png" />
+    <Content Include="Assets\05_hospedajes.png" />
+    <Content Include="Assets\06_servicios.png" />
+    <Content Include="Assets\07_restaurantes.png" />
+    <Content Include="Assets\08_botillerias.png" />
+    <Content Include="Assets\09_entretencion.png" />
     <Content Include="Assets\AlignmentGrid.png" />
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Tiles\AlignmentGrid.png" />
+    <Content Include="Assets\Tiles\appbar.download.png" />
+    <Content Include="Assets\Tiles\appbar.feature.search.rest.png" />
+    <Content Include="Assets\Tiles\appbar.feature.settings.rest.png" />
+    <Content Include="Assets\Tiles\appbar.locate.me.png" />
+    <Content Include="Assets\Tiles\appbar.show.route.png" />
+    <Content Include="Assets\Tiles\ApplicationIcon.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
